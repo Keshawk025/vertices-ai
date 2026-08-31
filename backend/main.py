@@ -1,5 +1,6 @@
 import logging
 from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from api.upload import router as upload_router
 from api.auth import router as auth_router, get_current_user, User
 
@@ -10,6 +11,15 @@ logging.basicConfig(
 )
 
 app = FastAPI(title="Veritas AI")
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(auth_router)
 app.include_router(upload_router) # Dependencies now handled in the upload endpoint

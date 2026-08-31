@@ -28,6 +28,15 @@ export interface AuthFormProps {
 function formatFirebaseError(error: any): string {
   if (!error) return "An unknown error occurred.";
   const errorCode = error.code || "";
+  const errorMessage = error.message || "";
+
+  if (
+    errorCode.includes("api-key-not-valid") ||
+    errorCode.includes("invalid-api-key") ||
+    errorMessage.includes("api-key-not-valid")
+  ) {
+    return "Firebase API Key is invalid or using placeholder credentials. Please update NEXT_PUBLIC_FIREBASE_API_KEY in your .env / .env.local file with a valid key from your Firebase Console.";
+  }
 
   switch (errorCode) {
     case "auth/invalid-credential":
@@ -46,6 +55,8 @@ function formatFirebaseError(error: any): string {
       return "Sign-in popup was blocked by your browser.";
     case "auth/too-many-requests":
       return "Too many failed attempts. Please try again later.";
+    case "auth/configuration-not-found":
+      return "Firebase Authentication is not activated yet in your Firebase Console. Please go to Firebase Console > Authentication > Get Started and enable Email/Password.";
     case "auth/network-request-failed":
       return "Network error. Please check your internet connection.";
     default:

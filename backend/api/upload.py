@@ -12,6 +12,7 @@ from services.embeddings.embedding_service import EmbeddingService
 from services.vector_store.faiss_service import FAISSService
 
 from firebase.firestore_service import create_document as fs_create_document, update_document as fs_update_document
+from firebase.storage_service import upload_document as st_upload_document
 
 logger = logging.getLogger(__name__)
 

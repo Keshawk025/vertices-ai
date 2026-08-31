@@ -54,6 +54,27 @@ class Message(Base):
 
 Base.metadata.create_all(bind=engine)
 
+# Auto-migrate SQLite schema for missing columns in existing databases
+def _ensure_sqlite_columns():
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(
+                __import__("sqlalchemy").text("PRAGMA table_info(documents);")
+            ).fetchall()
+            existing_cols = [r[1] for r in result]
+            if existing_cols:
+                if "page_count" not in existing_cols:
+                    conn.execute(__import__("sqlalchemy").text("ALTER TABLE documents ADD COLUMN page_count INTEGER DEFAULT 0;"))
+                if "ocr_used" not in existing_cols:
+                    conn.execute(__import__("sqlalchemy").text("ALTER TABLE documents ADD COLUMN ocr_used INTEGER DEFAULT 0;"))
+                if "file_size" not in existing_cols:
+                    conn.execute(__import__("sqlalchemy").text("ALTER TABLE documents ADD COLUMN file_size INTEGER DEFAULT 0;"))
+                conn.commit()
+    except Exception as e:
+        logger.warning(f"SQLite column migration note: {e}")
+
+_ensure_sqlite_columns()
+
 # Password hashing setup
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
