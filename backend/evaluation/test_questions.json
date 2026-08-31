@@ -1,0 +1,17 @@
+[
+    {"id": 1, "type": "factual", "question": "What is Veritas AI?"},
+    {"id": 2, "type": "factual", "question": "Who founded Project X?"},
+    {"id": 3, "type": "factual", "question": "When was the last system update?"},
+    {"id": 4, "type": "factual", "question": "What is the capital of France?"},
+    {"id": 5, "type": "ambiguous", "question": "Tell me about Atlas."},
+    {"id": 6, "type": "ambiguous", "question": "How does the system handle nodes?"},
+    {"id": 7, "type": "ambiguous", "question": "Explain the new feature."},
+    {"id": 8, "type": "ambiguous", "question": "What are the rules?"},
+    {"id": 9, "type": "missing", "question": "What is the secret passcode?"},
+    {"id": 10, "type": "missing", "question": "Who is the unknown creator?"},
+    {"id": 11, "type": "missing", "question": "When was the unreleased product launched?"},
+    {"id": 12, "type": "missing", "question": "What happens in year 2099?"},
+    {"id": 13, "type": "contradictory", "question": "Is the policy active or deprecated?"},
+    {"id": 14, "type": "contradictory", "question": "When was Project X founded?"},
+    {"id": 15, "type": "contradictory", "question": "Which server is the primary?"}
+]
