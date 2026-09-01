@@ -31,6 +31,7 @@ interface RecentDocumentsProps {
   onSearchChange: (q: string) => void;
   statusFilter: string;
   onStatusFilterChange: (status: string) => void;
+  onRefresh?: () => void;
 }
 
 function formatBytes(bytes: number): string {

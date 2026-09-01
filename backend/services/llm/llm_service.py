@@ -20,16 +20,20 @@ def get_llm_service() -> LLMService:
     elif provider == "featherless":
         from services.llm.featherless_service import FeatherlessService
         return FeatherlessService()
+    elif provider == "local":
+        from services.llm.local_service import LocalExtractiveService
+        return LocalExtractiveService()
     else:
-        # Fallback to Groq if key exists, otherwise Featherless
+        # Fallback to Groq if key exists, otherwise Featherless, otherwise Local
         if os.getenv("GROQ_API_KEY"):
-            logger.info("LLM_PROVIDER not set, falling back to GroqService based on API key.")
+            logger.info("Using GroqService based on GROQ_API_KEY environment variable.")
             from services.llm.groq_service import GroqService
             return GroqService()
         elif os.getenv("FEATHERLESS_API_KEY"):
-            logger.info("LLM_PROVIDER not set, falling back to FeatherlessService based on API key.")
+            logger.info("Using FeatherlessService based on FEATHERLESS_API_KEY environment variable.")
             from services.llm.featherless_service import FeatherlessService
             return FeatherlessService()
         else:
-            logger.error("No valid LLM_PROVIDER or API keys found.")
-            raise ValueError("No valid LLM_PROVIDER or API keys found.")
+            logger.info("No cloud LLM API key detected. Using built-in LocalExtractiveService for grounded synthesis.")
+            from services.llm.local_service import LocalExtractiveService
+            return LocalExtractiveService()
