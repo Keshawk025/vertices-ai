@@ -1,4 +1,21 @@
 // Veritas AI Vanilla Frontend Controller
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// Firebase Configuration for veritas-ai-a08ec
+const firebaseConfig = {
+  apiKey: "AIzaSyDUmHGnORCfv8wJJLNJg3bkbje14azbxNE",
+  authDomain: "veritas-ai-a08ec.firebaseapp.com",
+  projectId: "veritas-ai-a08ec",
+  storageBucket: "veritas-ai-a08ec.firebasestorage.app",
+  messagingSenderId: "246311189482",
+  appId: "1:246311189482:web:461a7ab44c5f6e256c1093"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
 
 let authToken = localStorage.getItem("veritas_token") || null;
 let currentConvId = null;
@@ -10,6 +27,7 @@ const navTabs = document.getElementById("navTabs");
 const navUser = document.getElementById("navUser");
 const userEmailBadge = document.getElementById("userEmailBadge");
 const logoutBtn = document.getElementById("logoutBtn");
+const googleSignInBtn = document.getElementById("googleSignInBtn");
 
 // Tab switching
 function switchTab(tabId) {
@@ -26,9 +44,30 @@ function switchTab(tabId) {
   if (tabId === "documents") loadDocuments();
 }
 
+window.switchTab = switchTab;
+
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => switchTab(btn.dataset.tab));
 });
+
+// Google Sign-In Handler
+if (googleSignInBtn) {
+  googleSignInBtn.addEventListener("click", async () => {
+    authAlert.style.display = "none";
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const idToken = await result.user.getIdToken();
+      authToken = idToken;
+      localStorage.setItem("veritas_token", authToken);
+      localStorage.setItem("veritas_user", result.user.email);
+      initLoggedInState(result.user.email);
+    } catch (err) {
+      console.error("Google sign in error:", err);
+      authAlert.textContent = err.message || "Failed to sign in with Google.";
+      authAlert.style.display = "block";
+    }
+  });
+}
 
 // Auth form handling
 let isRegisterMode = false;
@@ -93,7 +132,10 @@ authForm.addEventListener("submit", async (e) => {
   }
 });
 
-logoutBtn.addEventListener("click", () => {
+logoutBtn.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+  } catch (e) {}
   authToken = null;
   localStorage.removeItem("veritas_token");
   localStorage.removeItem("veritas_user");
@@ -188,6 +230,8 @@ async function loadDashboard() {
     console.error("Dashboard error:", err);
   }
 }
+
+window.loadDashboard = loadDashboard;
 
 // 2. UPLOAD CONTROLLER
 const dropzone = document.getElementById("dropzone");
@@ -308,6 +352,8 @@ async function loadConversations() {
   }
 }
 
+window.loadConversations = loadConversations;
+
 newChatBtn.addEventListener("click", async () => {
   try {
     const title = `Chat ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
@@ -342,6 +388,8 @@ async function selectConversation(convId, title) {
     console.error("Load history error:", err);
   }
 }
+
+window.selectConversation = selectConversation;
 
 function renderMessages(messages) {
   if (!messages || messages.length === 0) {
@@ -430,7 +478,7 @@ chatForm.addEventListener("submit", async (e) => {
 });
 
 async function deleteConversation(convId, e) {
-  e.stopPropagation();
+  if (e) e.stopPropagation();
   if (!confirm("Are you sure you want to delete this chat session?")) return;
 
   try {
@@ -442,6 +490,8 @@ async function deleteConversation(convId, e) {
     console.error("Delete conversation error:", err);
   }
 }
+
+window.deleteConversation = deleteConversation;
 
 // 4. DOCUMENTS CONTROLLER
 const docSearchInput = document.getElementById("docSearchInput");
@@ -484,6 +534,8 @@ async function loadDocuments() {
   }
 }
 
+window.loadDocuments = loadDocuments;
+
 async function deleteDoc(docId) {
   if (!confirm("Are you sure you want to delete this document?")) return;
   try {
@@ -494,6 +546,8 @@ async function deleteDoc(docId) {
     console.error("Delete doc error:", err);
   }
 }
+
+window.deleteDoc = deleteDoc;
 
 function escapeHtml(text) {
   if (!text) return "";
