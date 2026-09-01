@@ -30,10 +30,29 @@ app.include_router(documents_router)
 app.include_router(conversations_router)
 app.include_router(dashboard_router)
 
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+# Mount static files directory
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if os.path.exists(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
 @app.get("/")
-def root():
+def serve_index():
+    index_file = os.path.join(static_dir, "index.html")
+    if os.path.exists(index_file):
+        return FileResponse(index_file)
     return {
         "message": "Veritas AI Backend Running"
+    }
+
+@app.get("/api/health")
+def api_health():
+    return {
+        "message": "Veritas AI Backend Running",
+        "status": "healthy"
     }
 
 @app.post("/ask")

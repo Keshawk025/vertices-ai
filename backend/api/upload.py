@@ -118,11 +118,16 @@ async def upload_pdf(file: UploadFile = File(...), current_user: User = Depends(
         new_doc.ocr_used = ocr_used
         
         chunks = chunker.chunk_document(parsed_data)
-        embedded_chunks = embedding_service.generate_embeddings(chunks)
+        emb_result = embedding_service.generate_embeddings(chunks)
+        embedded_chunks = emb_result.get("embedded_chunks", []) if isinstance(emb_result, dict) else emb_result
         
-        # Inject user_id into each chunk before saving to FAISS
+        # Inject user_id, document_id, and filename into each chunk before saving to FAISS
         for chunk in embedded_chunks:
             chunk["user_id"] = current_user.id
+            if "document_id" not in chunk:
+                chunk["document_id"] = file_id
+            if "filename" not in chunk:
+                chunk["filename"] = file.filename
             
         faiss_service.add_embeddings(embedded_chunks)
         faiss_service.save_index()

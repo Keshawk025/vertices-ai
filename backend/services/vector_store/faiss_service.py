@@ -15,6 +15,11 @@ class FAISSService:
         self.index = None
         self.metadata_store = {}  # Map integer IDs to metadata dict
         self._next_id = 0
+        if os.path.exists(self.index_path) and os.path.exists(self.meta_path):
+            try:
+                self.load_index()
+            except Exception as e:
+                logger.warning(f"Could not auto-load index from {self.index_path}: {e}")
 
     def create_index(self):
         """Initializes a new FAISS index using Inner Product (for Cosine Similarity on normalized vectors)."""
@@ -32,7 +37,13 @@ class FAISSService:
 
     def add_embeddings(self, embedded_chunks: List[Dict[str, Any]]):
         if self.index is None:
-            self.create_index()
+            if os.path.exists(self.index_path) and os.path.exists(self.meta_path):
+                try:
+                    self.load_index()
+                except Exception:
+                    self.create_index()
+            else:
+                self.create_index()
             
         if not embedded_chunks:
             logger.warning("Empty embeddings list provided.")
@@ -82,6 +93,12 @@ class FAISSService:
         logger.info(f"Embeddings added. {len(ids)} chunks indexed.")
 
     def search(self, query_embedding: List[float], top_k: int = 5, user_id: int = None, document_id: str = None) -> List[Dict[str, Any]]:
+        if (self.index is None or self.index.ntotal == 0) and os.path.exists(self.index_path) and os.path.exists(self.meta_path):
+            try:
+                self.load_index()
+            except Exception as e:
+                logger.warning(f"Could not load index in search: {e}")
+
         if self.index is None or self.index.ntotal == 0:
             logger.error("Empty index: Cannot search on an empty index.")
             raise RuntimeError("Empty index: Cannot search on an empty index.")

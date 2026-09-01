@@ -195,7 +195,16 @@ def add_message(conversation_id: str, msg: MessageCreate, current_user: User = D
     while retry_count <= self_correction_service.max_retries:
         try:
             query_embedding = rag_service.embed_query(question)
-            chunks = rag_service.retrieve_chunks(query_embedding, user_id=current_user.id)
+            try:
+                chunks = rag_service.retrieve_chunks(query_embedding, user_id=current_user.id)
+            except ValueError:
+                chunks = []
+
+            if not chunks:
+                answer = "I could not find sufficient information in the available documentation."
+                citations = []
+                break
+
             temp_citations = [{"page": c.get("page"), "chunk_id": c.get("chunk_id")} for c in chunks]
             verification_result = verification_service.verify_response(chunks, temp_citations)
 

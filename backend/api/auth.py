@@ -84,21 +84,57 @@ def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(securit
     return user
 
 
-@router.post("/register")
-def register():
-    logger.info("Firebase signup")
-    print("Firebase signup")
+@router.post("/register", status_code=status.HTTP_201_CREATED)
+def register(user_data: UserCreate, db: Session = Depends(get_db)):
+    if not user_data.email or not user_data.password:
+        raise HTTPException(status_code=400, detail="Email and password are required.")
+    
+    existing = db.query(User).filter(User.email == user_data.email).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Email already registered.")
+        
+    hashed_pwd = get_password_hash(user_data.password)
+    new_user = User(
+        name=user_data.name or user_data.email.split("@")[0],
+        email=user_data.email,
+        password_hash=hashed_pwd
+    )
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    
+    token = create_access_token({"sub": new_user.email})
+    logger.info(f"User registered: {new_user.email}")
     return {
-        "message": "Deprecated. Use Firebase Authentication on the client."
+        "access_token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": new_user.id,
+            "email": new_user.email,
+            "name": new_user.name
+        }
     }
 
 
 @router.post("/login")
-def login():
-    logger.info("Firebase login")
-    print("Firebase login")
+def login(login_data: UserLogin, db: Session = Depends(get_db)):
+    if not login_data.email or not login_data.password:
+        raise HTTPException(status_code=400, detail="Email and password are required.")
+        
+    user = db.query(User).filter(User.email == login_data.email).first()
+    if not user or not user.password_hash or not verify_password(login_data.password, user.password_hash):
+        raise HTTPException(status_code=401, detail="Invalid email or password.")
+        
+    token = create_access_token({"sub": user.email})
+    logger.info(f"User logged in: {user.email}")
     return {
-        "message": "Deprecated. Use Firebase Authentication on the client."
+        "access_token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": user.id,
+            "email": user.email,
+            "name": user.name
+        }
     }
 
 

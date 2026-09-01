@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas AI — Multi-Document Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <div class="logo-icon">🛡️</div>
+      <div>
+        <div class="brand-title">Veritas AI</div>
+        <div class="brand-subtitle">Self-Healing Multi-Doc RAG</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs (Visible when logged in) -->
+    <nav class="nav-tabs" id="navTabs" style="display: none;">
+      <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+      <button class="tab-btn" data-tab="upload">Upload Document</button>
+      <button class="tab-btn" data-tab="chat">Q&A Chat</button>
+      <button class="tab-btn" data-tab="documents">Documents</button>
+    </nav>
+
+    <!-- User Profile & Logout -->
+    <div class="nav-user" id="navUser" style="display: none;">
+      <div class="user-badge" id="userEmailBadge">user@example.com</div>
+      <button class="btn btn-outline btn-sm" id="logoutBtn">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- 1. AUTH SCREEN (Login / Register) -->
+    <section id="authSection" class="auth-card">
+      <div class="auth-header">
+        <div class="auth-icon">🛡️</div>
+        <h2>Welcome to Veritas AI</h2>
+        <p>Sign in or create an account to start intelligent document analysis</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="showLoginBtn">Sign In</button>
+        <button class="auth-tab-btn" id="showRegisterBtn">Register</button>
+      </div>
+
+      <div id="authAlert" class="alert alert-danger" style="display: none;"></div>
+      <div id="authSuccess" class="alert alert-success" style="display: none;"></div>
+
+      <form id="authForm">
+        <div class="form-group" id="nameGroup" style="display: none;">
+          <label for="authName">Full Name</label>
+          <input type="text" id="authName" placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="authEmail">Email Address</label>
+          <input type="email" id="authEmail" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" placeholder="••••••••" required minlength="6">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">
+          Sign In
+        </button>
+      </form>
+    </section>
+
+    <!-- 2. DASHBOARD VIEW -->
+    <section id="dashboardTab" class="app-tab active" style="display: none;">
+      <div class="hero-card">
+        <div>
+          <h2 id="welcomeText">Welcome to Veritas AI</h2>
+          <p>FAISS dense vector embeddings, hybrid keyword search, and Self-Healing retrieval active.</p>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="switchTab('upload')">📤 Upload PDF</button>
+          <button class="btn btn-secondary" onclick="switchTab('chat')">💬 Ask Questions</button>
+        </div>
+      </div>
+
+      <!-- Metric Cards Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📄</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statDocs">0</div>
+            <div class="stat-label">Total Documents</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💬</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statConvs">0</div>
+            <div class="stat-label">Active Chat Sessions</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">❓</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statQuestions">0</div>
+            <div class="stat-label">Questions Answered</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💾</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statStorage">0 KB</div>
+            <div class="stat-label">Storage Consumed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Documents Section -->
+      <div class="section-card">
+        <div class="section-header">
+          <h3>Recent Documents</h3>
+          <button class="btn btn-outline btn-sm" onclick="loadDashboard()">🔄 Refresh</button>
+        </div>
+        <div id="recentDocsContainer">
+          <p class="empty-state">No documents uploaded yet. Upload a PDF to start.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. UPLOAD VIEW -->
+    <section id="uploadTab" class="app-tab" style="display: none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h3>Upload PDF Document</h3>
+            <p class="section-desc">Supports PDF text extraction, OCR fallback, and FAISS indexing.</p>
+          </div>
+        </div>
+
+        <div id="uploadAlert" class="alert alert-danger" style="display: none;"></div>
+        <div id="uploadSuccess" class="alert alert-success" style="display: none;"></div>
+
+        <!-- Upload Dropzone -->
+        <div class="dropzone" id="dropzone">
+          <div class="dropzone-icon">📁</div>
+          <h4>Select or Drop PDF File Here</h4>
+          <p>Maximum file size: 20 MB</p>
+          <input type="file" id="fileInput" accept="application/pdf,.pdf" style="display: none;">
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
+            Browse Files
+          </button>
+        </div>
+
+        <div id="selectedFileInfo" class="file-info-card" style="display: none;">
+          <div class="file-name" id="selectedFileName">document.pdf</div>
+          <div class="file-size" id="selectedFileSize">0 KB</div>
+        </div>
+
+        <div id="uploadProgress" class="progress-container" style="display: none;">
+          <div class="spinner"></div>
+          <span id="uploadStatusText">Parsing PDF, creating chunks & FAISS embeddings...</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="startUploadBtn" style="display: none;">
+            Start Ingestion Pipeline
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CHAT / Q&A VIEW (Self-Healing RAG) -->
+    <section id="chatTab" class="app-tab chat-layout" style="display: none;">
+      <!-- Conversations Sidebar -->
+      <aside class="chat-sidebar">
+        <div class="chat-sidebar-header">
+          <span>Sessions</span>
+          <button class="btn btn-primary btn-sm" id="newChatBtn">+ New</button>
+        </div>
+        <div class="conversation-list" id="convList">
+          <p class="empty-state">No chat sessions.</p>
+        </div>
+      </aside>
+
+      <!-- Chat Main Area -->
+      <div class="chat-main">
+        <div class="chat-header">
+          <div>
+            <h4 id="chatTitle">Document Q&A Assistant</h4>
+            <span class="badge badge-success">Self-Healing RAG Active</span>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="empty-chat">
+            <div class="empty-chat-icon">📖</div>
+            <h3>Ask Anything About Your Documents</h3>
+            <p>Veritas AI retrieves verified context chunks, verifies grounding, and generates answers with page citations.</p>
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <form class="chat-input-bar" id="chatForm">
+          <input type="text" id="chatInput" placeholder="Ask a question about your uploaded documents..." autocomplete="off" required>
+          <button type="submit" class="btn btn-primary" id="chatSendBtn">
+            Ask
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 5. DOCUMENTS VIEW -->
+    <section id="documentsTab" class="app-tab" style="display: none;">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <h3>Document Repository</h3>
+            <p class="section-desc">Search, filter, and manage your processed knowledge base.</p>
+          </div>
+          <button class="btn btn-primary" onclick="switchTab('upload')">+ Upload New</button>
+        </div>
+
+        <div class="filter-bar">
+          <input type="text" id="docSearchInput" placeholder="Search by filename..." class="search-input">
+          <select id="docStatusFilter" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="processed">Processed</option>
+            <option value="uploaded">Uploaded</option>
+            <option value="failed">Failed</option>
+          </select>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Filename</th>
+                <th>Status</th>
+                <th>Pages</th>
+                <th>Size</th>
+                <th>Uploaded At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="documentsTableBody">
+              <tr>
+                <td colspan="6" class="text-center">Loading documents...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
