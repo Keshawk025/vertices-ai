@@ -2,17 +2,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// Firebase Configuration for veritas-ai-a08ec
-const firebaseConfig = {
-  apiKey: "AIzaSyDUmHGnORCfv8wJJLNJg3bkbje14azbxNE",
-  authDomain: "veritas-ai-a08ec.firebaseapp.com",
-  projectId: "veritas-ai-a08ec",
-  storageBucket: "veritas-ai-a08ec.firebasestorage.app",
-  messagingSenderId: "246311189482",
-  appId: "1:246311189482:web:461a7ab44c5f6e256c1093"
-};
+// Fetch Firebase Configuration dynamically from backend (zero hardcoded secrets)
+const configRes = await fetch("/api/config");
+const firebaseConfig = configRes.ok ? await configRes.json() : {};
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
@@ -248,25 +243,40 @@ const uploadSuccess = document.getElementById("uploadSuccess");
 
 let selectedUploadFiles = [];
 
+// Allow clicking anywhere on the dropzone box to open file input
+dropzone.addEventListener("click", (e) => {
+  if (e.target.id !== "fileInput" && e.target.id !== "browseFilesBtn") {
+    fileInput.click();
+  }
+});
+
 fileInput.addEventListener("change", (e) => {
   if (e.target.files && e.target.files.length > 0) {
     addUploadFiles(Array.from(e.target.files));
   }
+  fileInput.value = "";
 });
 
-dropzone.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  dropzone.style.borderColor = "var(--primary)";
+["dragenter", "dragover"].forEach((eventName) => {
+  dropzone.addEventListener(eventName, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.style.borderColor = "var(--primary)";
+    dropzone.style.backgroundColor = "rgba(124, 58, 237, 0.1)";
+  });
 });
 
-dropzone.addEventListener("dragleave", () => {
-  dropzone.style.borderColor = "var(--border-color)";
+["dragleave", "drop"].forEach((eventName) => {
+  dropzone.addEventListener(eventName, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.style.borderColor = "var(--border-color)";
+    dropzone.style.backgroundColor = "rgba(26, 26, 38, 0.5)";
+  });
 });
 
 dropzone.addEventListener("drop", (e) => {
-  e.preventDefault();
-  dropzone.style.borderColor = "var(--border-color)";
-  if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+  if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
     addUploadFiles(Array.from(e.dataTransfer.files));
   }
 });
@@ -276,20 +286,34 @@ function addUploadFiles(files) {
   uploadSuccess.style.display = "none";
 
   let invalidFilesCount = 0;
+  let duplicateCount = 0;
+  let addedCount = 0;
+
   files.forEach(file => {
-    if (!file.name.toLowerCase().endsWith(".pdf")) {
+    const isPdf = file.name.toLowerCase().trim().endsWith(".pdf") || file.type === "application/pdf";
+    if (!isPdf) {
       invalidFilesCount++;
       return;
     }
-    // Prevent adding identical duplicates in current selection queue
     const exists = selectedUploadFiles.some(f => f.name === file.name && f.size === file.size);
-    if (!exists) {
+    if (exists) {
+      duplicateCount++;
+    } else {
       selectedUploadFiles.push(file);
+      addedCount++;
     }
   });
 
+  let messages = [];
   if (invalidFilesCount > 0) {
-    uploadAlert.textContent = `Ignored ${invalidFilesCount} non-PDF file(s). Only PDF documents are supported.`;
+    messages.push(`Ignored ${invalidFilesCount} non-PDF file(s). Only PDF documents are supported.`);
+  }
+  if (duplicateCount > 0) {
+    messages.push(`${duplicateCount} file(s) were already selected.`);
+  }
+
+  if (messages.length > 0) {
+    uploadAlert.innerHTML = messages.join("<br>");
     uploadAlert.style.display = "block";
   }
 
@@ -323,7 +347,10 @@ function renderSelectedFiles() {
       <button type="button" class="file-item-remove-btn" onclick="removeUploadFile(${idx})" title="Remove file">✕</button>
     </div>
   `).join("");
+
+  selectedFilesContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
+
 
 function removeUploadFile(index) {
   if (index >= 0 && index < selectedUploadFiles.length) {

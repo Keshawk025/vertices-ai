@@ -48,6 +48,22 @@ def serve_index():
         "message": "Veritas AI Backend Running"
     }
 
+from dotenv import load_dotenv
+root_env = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+if os.path.exists(root_env):
+    load_dotenv(root_env)
+
+@app.get("/api/config")
+def get_client_config():
+    return {
+        "apiKey": os.getenv("NEXT_PUBLIC_FIREBASE_API_KEY", ""),
+        "authDomain": os.getenv("NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN", ""),
+        "projectId": os.getenv("NEXT_PUBLIC_FIREBASE_PROJECT_ID", ""),
+        "storageBucket": os.getenv("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET", ""),
+        "messagingSenderId": os.getenv("NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID", ""),
+        "appId": os.getenv("NEXT_PUBLIC_FIREBASE_APP_ID", "")
+    }
+
 @app.get("/api/health")
 def api_health():
     return {
@@ -58,6 +74,7 @@ def api_health():
 @app.post("/ask")
 def ask_question(current_user: User = Depends(get_current_user)):
     return {"message": "Protected ask endpoint"}
+
 
 @app.post("/evaluation")
 def run_eval(current_user: User = Depends(get_current_user)):

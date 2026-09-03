@@ -168,9 +168,10 @@
           <h4>Select or Drop PDF Files Here</h4>
           <p>You can select multiple PDF files simultaneously. Maximum file size: 20 MB each.</p>
           <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple style="display: none;">
-          <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
+          <button type="button" class="btn btn-secondary" id="browseFilesBtn" onclick="document.getElementById('fileInput').click()">
             Browse Files
           </button>
+
         </div>
 
         <!-- Multi-File Selected List Container -->

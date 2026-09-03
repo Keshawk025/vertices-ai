@@ -57,7 +57,7 @@ class RAGService:
         query_or_embedding: Union[str, List[float]],
         user_id: Any = None,
         document_id: str = None,
-        top_k: int = 5
+        top_k: int = 10
     ) -> List[Dict[str, Any]]:
         """
         Active Retrieval Engine:
@@ -87,10 +87,10 @@ class RAGService:
                     faiss_service=self.faiss_service,
                     embedding_service=self.embedding_service,
                     reranker=self.reranker,
-                    bm25_top_k=10,
-                    faiss_top_k=10,
+                    bm25_top_k=max(20, top_k * 2),
+                    faiss_top_k=max(20, top_k * 2),
                     rrf_k=60,
-                    rerank_candidate_limit=15,
+                    rerank_candidate_limit=max(30, top_k * 3),
                     top_k=top_k
                 )
                 logger.info(f"Retrieval completed. {len(results)} chunks found via Hybrid pipeline.")
@@ -140,7 +140,8 @@ class RAGService:
         question: str,
         user_id: Any = None,
         document_id: str = None,
-        history: List[Dict[str, str]] = None
+        history: List[Dict[str, str]] = None,
+        top_k: int = 10
     ) -> Dict[str, Any]:
         """
         Synthesize answer using the unified Hybrid Retrieval -> RRF -> Cross-Encoder -> LLM pipeline.
@@ -156,7 +157,7 @@ class RAGService:
             query_or_embedding=question,
             user_id=user_id,
             document_id=document_id,
-            top_k=5
+            top_k=top_k
         )
         
         if not chunks:
@@ -165,9 +166,31 @@ class RAGService:
                 "answer": "I could not find sufficient information in the available documentation.",
                 "citations": []
             }
+
+        # Multi-chunk contiguous expansion for multi-chunk document sections on the same page
+        expanded_chunks = list(chunks)
+        retrieved_ids = set(c.get("chunk_id") for c in chunks)
+        corpus_chunks = []
+        if hasattr(self.faiss_service, "get_chunks"):
+            corpus_chunks = self.faiss_service.get_chunks(user_id=user_id, document_id=document_id)
+        elif getattr(self.faiss_service, "metadata_store", None):
+            corpus_chunks = list(self.faiss_service.metadata_store.values())
+
+        page_groups = {}
+        for c in chunks:
+            key = (c.get("filename"), c.get("page"))
+            page_groups.setdefault(key, []).append(c)
+
+        for (fn, pg), group in page_groups.items():
+            if len(group) >= 2 and pg is not None:
+                doc_page_chunks = [c for c in corpus_chunks if c.get("filename") == fn and c.get("page") == pg]
+                for dpc in doc_page_chunks:
+                    if dpc.get("chunk_id") not in retrieved_ids:
+                        expanded_chunks.append(dpc)
+                        retrieved_ids.add(dpc.get("chunk_id"))
             
         # 2. Build context
-        context = self.build_context(chunks)
+        context = self.build_context(expanded_chunks)
         
         # 3. Call LLM
         user_prompt = USER_PROMPT_TEMPLATE.format(context=context, question=question)
@@ -179,15 +202,21 @@ class RAGService:
             # Propagate the error correctly so callers can handle LLM failure
             raise RuntimeError(f"LLM failure: {e}")
             
-        # 4. Return citations
+        # 4. Return citations (deduplicated by page with stable page-number ordering)
         citations = []
-        for chunk in chunks:
-            citations.append({
-                "page": chunk.get("page", 1),
-                "chunk_id": chunk.get("chunk_id")
-            })
+        seen_pages = set()
+        for chunk in expanded_chunks:
+            page = chunk.get("page", 1)
+            if page not in seen_pages:
+                seen_pages.add(page)
+                citations.append({
+                    "page": page,
+                    "chunk_id": chunk.get("chunk_id")
+                })
+        citations.sort(key=lambda x: int(x["page"]) if str(x["page"]).isdigit() else str(x["page"]))
             
         return {
             "answer": answer.strip(),
             "citations": citations
         }
+

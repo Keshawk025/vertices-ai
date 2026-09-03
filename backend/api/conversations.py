@@ -205,9 +205,10 @@ def add_message(conversation_id: str, msg: MessageCreate, current_user: User = D
                 break
 
             temp_citations = [{"page": c.get("page"), "chunk_id": c.get("chunk_id")} for c in chunks]
-            verification_result = verification_service.verify_response(chunks, temp_citations)
+            verification_result = verification_service.verify_response(chunks, temp_citations, query=question)
 
             if verification_result["can_answer"]:
+
                 ans = rag_service.answer_question(question, user_id=current_user.id, history=history)
                 answer = ans["answer"]
                 citations = ans["citations"]

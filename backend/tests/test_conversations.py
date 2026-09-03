@@ -114,3 +114,51 @@ def test_user_isolation_and_delete():
     # Try fetching it again
     fetch_a = client.get(f"/conversations/{conv_id}", headers={"Authorization": f"Bearer {token_a}"})
     assert fetch_a.status_code == 404
+
+
+@patch("api.conversations.rag_service.retrieve_chunks")
+@patch("api.conversations.verification_service.verify_response")
+@patch("api.conversations.rag_service.answer_question")
+def test_production_qa_passes_query_to_verification(mock_answer, mock_verify, mock_retrieve):
+    """
+    Regression Test: Proves that the production Q&A endpoint in conversations.py
+    explicitly passes the active question into verification_service.verify_response(..., query=question).
+    """
+    token = _create_user_and_get_token("qa_verify_user@example.com", "QA User")
+    headers = {"Authorization": f"Bearer {token}"}
+    
+    conv_resp = client.post("/conversations", json={"title": "QA Test"}, headers=headers)
+    conv_id = conv_resp.json()["id"]
+    
+    user_question = "Define a Project. Explain the core characteristics of a project in detail."
+    test_chunks = [
+        {
+            "chunk_id": "c_proj_1",
+            "page": 1,
+            "filename": "BME654A-module-1-pdf.pdf",
+            "content": "DEFINITION OF PROJECT: Projects are temporary endeavors undertaken to create a unique product, service, or result."
+        },
+        {
+            "chunk_id": "c_proj_2",
+            "page": 2,
+            "filename": "BME654A-module-1-pdf.pdf",
+            "content": "CHARACTERISTICS OF PROJECTS: 1. Defined Objectives. 2. Temporary Nature. 3. Unique Deliverables."
+        }
+    ]
+    
+    mock_retrieve.return_value = test_chunks
+    mock_verify.return_value = {"can_answer": True, "verified": True, "score": 0.85, "issues": []}
+    mock_answer.return_value = {
+        "answer": "A project is a temporary endeavor with defined objectives and unique deliverables.",
+        "citations": [{"page": 1, "chunk_id": "c_proj_1"}, {"page": 2, "chunk_id": "c_proj_2"}]
+    }
+    
+    res = client.post(f"/conversations/{conv_id}/message", json={"content": user_question}, headers=headers)
+    assert res.status_code == 200
+    
+    # Assert verify_response was called with the actual question in the query parameter
+    assert mock_verify.called
+    called_args, called_kwargs = mock_verify.call_args
+    assert called_kwargs.get("query") == user_question
+    assert called_args[0] == test_chunks
+
