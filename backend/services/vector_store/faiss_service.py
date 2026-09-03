@@ -57,10 +57,14 @@ class FAISSService:
                 logger.error("Invalid embeddings: Missing or malformed embedding field.")
                 raise ValueError("Invalid embeddings: Missing or malformed embedding field.")
                 
-            required_meta = ["document_id", "chunk_id", "page", "content", "filename", "user_id"]
+            if "filename" not in chunk:
+                chunk["filename"] = ""
+            if "user_id" not in chunk:
+                chunk["user_id"] = None
+                
+            required_meta = ["document_id", "chunk_id", "page", "content"]
             missing = [m for m in required_meta if m not in chunk]
             if missing:
-                # Based on requirements "filename" must be present. If it's missing, it's an error.
                 logger.error(f"Missing metadata in chunk {chunk.get('chunk_id')}: {missing}")
                 raise ValueError(f"Missing required metadata: {missing}")
 
@@ -167,7 +171,13 @@ class FAISSService:
         if not os.path.exists(self.index_path) or not os.path.exists(self.meta_path):
             raise FileNotFoundError("Index or metadata file not found.")
             
-        self.index = faiss.read_index(self.index_path)
+        loaded_index = faiss.read_index(self.index_path)
+        if loaded_index.d != self.dimension:
+            logger.warning(f"Index dimension mismatch: file has {loaded_index.d}, service requires {self.dimension}")
+            self.create_index()
+            return
+
+        self.index = loaded_index
         
         with open(self.meta_path, "r") as f:
             data = json.load(f)
@@ -198,6 +208,37 @@ class FAISSService:
             del self.metadata_store[str(idx)]
             
         logger.info(f"Deleted document {document_id}. Removed {len(ids_to_remove)} chunks.")
+
+    def get_chunks(self, user_id: Any = None, document_id: str = None) -> List[Dict[str, Any]]:
+        """
+        Returns all chunk metadata stored in the vector store matching the optional
+        user_id and document_id filters. Required for lexical indexing (BM25)
+        over the active multi-document corpus.
+        """
+        if (self.index is None or not self.metadata_store) and os.path.exists(self.index_path) and os.path.exists(self.meta_path):
+            try:
+                self.load_index()
+            except Exception as e:
+                logger.warning(f"Could not load index in get_chunks: {e}")
+
+        if not self.metadata_store:
+            return []
+
+        chunks = []
+        for meta in self.metadata_store.values():
+            if user_id is not None and str(meta.get("user_id")) != str(user_id):
+                continue
+            if document_id is not None and meta.get("document_id") != document_id:
+                continue
+            chunks.append({
+                "chunk_id": meta["chunk_id"],
+                "document_id": meta["document_id"],
+                "page": meta.get("page", 1),
+                "content": meta["content"],
+                "filename": meta.get("filename", ""),
+                "user_id": meta.get("user_id")
+            })
+        return chunks
 
     def health_check(self) -> Dict[str, Any]:
         if self.index is None:

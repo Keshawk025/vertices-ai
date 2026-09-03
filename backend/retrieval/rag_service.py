@@ -1,8 +1,9 @@
 import logging
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional, Union
 from services.embeddings.embedding_service import EmbeddingService
 from services.vector_store.faiss_service import FAISSService
 from services.llm.llm_service import get_llm_service
+from retrieval.hybrid_search import hybrid_search, CrossEncoderReranker
 
 logger = logging.getLogger(__name__)
 
@@ -22,19 +23,26 @@ USER_PROMPT_TEMPLATE = """Context:
 Question:
 {question}"""
 
+
 class RAGService:
-    def __init__(self, embedding_service: EmbeddingService, faiss_service: FAISSService):
+    def __init__(
+        self,
+        embedding_service: EmbeddingService,
+        faiss_service: FAISSService,
+        reranker: Optional[CrossEncoderReranker] = None
+    ):
         self.embedding_service = embedding_service
         self.faiss_service = faiss_service
+        self.reranker = reranker
         try:
             self.llm_service = get_llm_service()
         except ValueError as e:
-            # We will initialize this safely so tests can pass without API keys
-            # if we explicitly handle it or let it fail gracefully.
+            # Initialize safely so tests can pass without API keys
             logger.warning(f"Failed to initialize LLM service: {e}")
             self.llm_service = None
 
     def embed_query(self, query: str) -> List[float]:
+        """Embed a query string using the active dense embedding service."""
         if not query or not query.strip():
             logger.error("Empty query provided.")
             raise ValueError("Empty query")
@@ -44,41 +52,112 @@ class RAGService:
         logger.info("Query embedded")
         return embedding
 
-    def retrieve_chunks(self, query_embedding: List[float], user_id: int = None, document_id: str = None) -> List[Dict[str, Any]]:
-        try:
-            results = self.faiss_service.search(query_embedding, top_k=5, user_id=user_id, document_id=document_id)
-            if not results:
-                logger.warning("No chunks found in FAISS search.")
-                return []
-            
-            logger.info(f"Retrieval completed. {len(results)} chunks found.")
-            return results
-        except RuntimeError as e:
-            if "Empty index" in str(e):
-                logger.error("Empty FAISS index encountered.")
-                raise ValueError("Empty FAISS index")
-            raise
+    def retrieve_chunks(
+        self,
+        query_or_embedding: Union[str, List[float]],
+        user_id: Any = None,
+        document_id: str = None,
+        top_k: int = 5
+    ) -> List[Dict[str, Any]]:
+        """
+        Active Retrieval Engine:
+        - If string query: runs full Unified Hybrid Retrieval (BM25 + FAISS -> RRF -> Cross-Encoder).
+        - If embedding list: performs FAISS dense search (backward compatibility).
+        """
+        # 1. String query: Active Hybrid Retrieval Pipeline
+        if isinstance(query_or_embedding, str):
+            query = query_or_embedding.strip()
+            if not query:
+                logger.error("Empty query provided.")
+                raise ValueError("Empty query")
+
+            # Retrieve candidate corpus from FAISSService metadata store
+            corpus_chunks = []
+            if hasattr(self.faiss_service, "get_chunks"):
+                corpus_chunks = self.faiss_service.get_chunks(user_id=user_id, document_id=document_id)
+            elif getattr(self.faiss_service, "metadata_store", None):
+                corpus_chunks = list(self.faiss_service.metadata_store.values())
+
+            try:
+                results = hybrid_search(
+                    query=query,
+                    user_id=user_id,
+                    document_id=document_id,
+                    chunks=corpus_chunks,
+                    faiss_service=self.faiss_service,
+                    embedding_service=self.embedding_service,
+                    reranker=self.reranker,
+                    bm25_top_k=10,
+                    faiss_top_k=10,
+                    rrf_k=60,
+                    rerank_candidate_limit=15,
+                    top_k=top_k
+                )
+                logger.info(f"Retrieval completed. {len(results)} chunks found via Hybrid pipeline.")
+                return results
+            except RuntimeError as e:
+                if "Empty index" in str(e):
+                    logger.error("Empty FAISS index encountered.")
+                    raise ValueError("Empty FAISS index")
+                raise
+
+        # 2. Embedding vector: Dense-only retrieval (backward compatibility)
+        elif isinstance(query_or_embedding, list):
+            try:
+                results = self.faiss_service.search(
+                    query_or_embedding,
+                    top_k=top_k,
+                    user_id=user_id,
+                    document_id=document_id
+                )
+                if not results:
+                    logger.warning("No chunks found in FAISS search.")
+                    return []
+                logger.info(f"Retrieval completed. {len(results)} chunks found via dense vector search.")
+                return results
+            except RuntimeError as e:
+                if "Empty index" in str(e):
+                    logger.error("Empty FAISS index encountered.")
+                    raise ValueError("Empty FAISS index")
+                raise
+        else:
+            raise TypeError("query_or_embedding must be a query string or embedding vector.")
 
     def build_context(self, chunks: List[Dict[str, Any]]) -> str:
+        """Format retrieved chunks with structured citation labels and page numbers."""
         context_parts = []
         for i, chunk in enumerate(chunks, 1):
             content = chunk.get("content", "")
-            page = chunk.get("page", "?")
+            page = chunk.get("page", 1)
             context_parts.append(f"[Citation {i}] Page {page}: {content}")
             
         context = "\n\n".join(context_parts)
         logger.info("Context built")
         return context
 
-    def answer_question(self, question: str, user_id: int = None, document_id: str = None, history: List[Dict[str, str]] = None) -> Dict[str, Any]:
+    def answer_question(
+        self,
+        question: str,
+        user_id: Any = None,
+        document_id: str = None,
+        history: List[Dict[str, str]] = None
+    ) -> Dict[str, Any]:
+        """
+        Synthesize answer using the unified Hybrid Retrieval -> RRF -> Cross-Encoder -> LLM pipeline.
+        """
         if not self.llm_service:
             raise ValueError("LLM failure: LLM Service is not configured properly.")
             
-        # 1. Generate Query Embedding
-        query_embedding = self.embed_query(question)
-        
-        # 2. Search FAISS (Top 5)
-        chunks = self.retrieve_chunks(query_embedding, user_id=user_id, document_id=document_id)
+        if not question or not question.strip():
+            raise ValueError("Empty query")
+
+        # 1. Active Hybrid Retrieval (BM25 + FAISS -> RRF -> Cross-Encoder Rerank)
+        chunks = self.retrieve_chunks(
+            query_or_embedding=question,
+            user_id=user_id,
+            document_id=document_id,
+            top_k=5
+        )
         
         if not chunks:
             # If no chunks found, return standard insufficient info response
@@ -87,10 +166,10 @@ class RAGService:
                 "citations": []
             }
             
-        # 3. Build context
+        # 2. Build context
         context = self.build_context(chunks)
         
-        # 4. Call LLM
+        # 3. Call LLM
         user_prompt = USER_PROMPT_TEMPLATE.format(context=context, question=question)
         
         try:
@@ -100,11 +179,11 @@ class RAGService:
             # Propagate the error correctly so callers can handle LLM failure
             raise RuntimeError(f"LLM failure: {e}")
             
-        # 5. Return citations
+        # 4. Return citations
         citations = []
         for chunk in chunks:
             citations.append({
-                "page": chunk.get("page"),
+                "page": chunk.get("page", 1),
                 "chunk_id": chunk.get("chunk_id")
             })
             

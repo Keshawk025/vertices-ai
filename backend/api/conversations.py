@@ -194,9 +194,8 @@ def add_message(conversation_id: str, msg: MessageCreate, current_user: User = D
 
     while retry_count <= self_correction_service.max_retries:
         try:
-            query_embedding = rag_service.embed_query(question)
             try:
-                chunks = rag_service.retrieve_chunks(query_embedding, user_id=current_user.id)
+                chunks = rag_service.retrieve_chunks(question, user_id=current_user.id)
             except ValueError:
                 chunks = []
 
