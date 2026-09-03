@@ -1,0 +1,175 @@
+{
+  "protocol_version": "1.0",
+  "created_at": "2026-09-03",
+  "benchmark_file": "backend/evaluation/benchmark_dataset.json",
+  "k_values": [1, 3, 5, 10],
+  "primary_k": 5,
+  "metrics": {
+    "retrieval": [
+      "recall@k",
+      "precision@k",
+      "mrr@k",
+      "ndcg@k",
+      "hit@k",
+      "gold_doc_recall"
+    ],
+    "answer_quality": [
+      "exact_match",
+      "token_f1",
+      "semantic_correctness"
+    ],
+    "faithfulness": [
+      "supported_claims_ratio",
+      "unsupported_claims_ratio",
+      "contradiction_rate",
+      "hallucination_rate",
+      "evidence_grounded_rate"
+    ],
+    "citation": [
+      "citation_precision",
+      "citation_recall",
+      "citation_f1",
+      "citation_correctness"
+    ],
+    "self_correction": [
+      "failure_detection_precision",
+      "failure_detection_recall",
+      "failure_detection_f1",
+      "correction_success_rate",
+      "recovery_rate",
+      "false_retry_rate",
+      "avg_correction_iterations",
+      "score_improvement",
+      "correct_final_action_rate"
+    ],
+    "contradiction_handling": [
+      "contradiction_detection_f1",
+      "conflict_preservation_rate",
+      "inappropriate_resolution_rate",
+      "correct_clarify_rate"
+    ],
+    "efficiency": [
+      "e2e_latency_ms",
+      "retrieval_latency_ms",
+      "rerank_latency_ms",
+      "verification_latency_ms",
+      "correction_latency_ms",
+      "retrieval_calls_count",
+      "llm_calls_count",
+      "input_tokens",
+      "output_tokens",
+      "estimated_cost_usd"
+    ]
+  },
+  "baselines": {
+    "Dense_RAG": {
+      "description": "Standard dense embedding retrieval using FAISS without fusion, reranking, verification, or self-correction",
+      "components": {
+        "dense_retrieval": true,
+        "bm25_retrieval": false,
+        "rrf_fusion": false,
+        "cross_encoder_reranking": false,
+        "evidence_assessment": false,
+        "nli_verification": false,
+        "self_correction_loop": false
+      }
+    },
+    "Hybrid_RAG": {
+      "description": "Hybrid BM25 + FAISS with Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking, without verification or self-correction",
+      "components": {
+        "dense_retrieval": true,
+        "bm25_retrieval": true,
+        "rrf_fusion": true,
+        "cross_encoder_reranking": true,
+        "evidence_assessment": false,
+        "nli_verification": false,
+        "self_correction_loop": false
+      }
+    },
+    "CRAG_Baseline": {
+      "description": "Local Corrective RAG implementation with heuristic retrieval evaluator and rewrite fallback, without NLI or cross-document conflict preservation",
+      "components": {
+        "dense_retrieval": true,
+        "bm25_retrieval": false,
+        "rrf_fusion": false,
+        "cross_encoder_reranking": false,
+        "evidence_assessment": "heuristic_confidence",
+        "nli_verification": false,
+        "self_correction_loop": "generic_rewrite_fallback"
+      }
+    },
+    "Veritas_AI": {
+      "description": "Full Veritas AI system: Hybrid RRF + Cross-Encoder + NLI Evidence Assessment + Diagnostic Reformulation + Self-Correction Loop",
+      "components": {
+        "dense_retrieval": true,
+        "bm25_retrieval": true,
+        "rrf_fusion": true,
+        "cross_encoder_reranking": true,
+        "evidence_assessment": "multi_facet_composite",
+        "nli_verification": "nli_deberta_v3",
+        "self_correction_loop": "diagnostic_query_reformulator"
+      }
+    }
+  },
+  "ablations": {
+    "Ablation_No_Hybrid": {
+      "description": "Evaluates the contribution of BM25 lexical fusion by disabling BM25 and RRF (Dense only + Veritas correction)",
+      "disabled_component": "bm25_and_rrf",
+      "research_question": "How much does lexical retrieval aid in overcoming vocabulary mismatch and sparse keyword gaps?"
+    },
+    "Ablation_No_Reranker": {
+      "description": "Evaluates Cross-Encoder reranking contribution by passing raw RRF top-k directly to evidence assessment",
+      "disabled_component": "cross_encoder_reranking",
+      "research_question": "Does cross-encoder reranking improve retrieval precision and initial evidence sufficiency before correction?"
+    },
+    "Ablation_No_NLI": {
+      "description": "Replaces DeBERTa NLI with surface token overlap heuristics for contradiction and consistency checking",
+      "disabled_component": "nli_verification",
+      "research_question": "Is formal NLI necessary for detecting fine-grained semantic contradictions across multi-document sources?"
+    },
+    "Ablation_No_Diagnostic_Reformulation": {
+      "description": "Replaces failure-mode-specific reformulation with naive generic query repetition / broadening",
+      "disabled_component": "diagnostic_query_reformulator",
+      "research_question": "Does diagnosing the specific failure mode (Coverage Gap vs Divergence vs Conflict) outperform naive query rewriting?"
+    },
+    "Ablation_No_Self_Correction": {
+      "description": "Single-pass Veritas AI: performs hybrid search, reranking, and verification, but emits output without corrective re-retrieval",
+      "disabled_component": "self_correction_loop",
+      "research_question": "What is the net gain in answer reliability, recovery rate, and groundedness directly attributable to the closed corrective loop?"
+    },
+    "Ablation_Max_Retries_0": {
+      "description": "Budget variation with maximum retry count = 0",
+      "max_retries": 0,
+      "research_question": "Zero-retry baseline for loop latency and accuracy trade-off"
+    },
+    "Ablation_Max_Retries_1": {
+      "description": "Budget variation with maximum retry count = 1",
+      "max_retries": 1,
+      "research_question": "Single-retry recovery efficiency"
+    },
+    "Ablation_Max_Retries_3": {
+      "description": "Budget variation with maximum retry count = 3",
+      "max_retries": 3,
+      "research_question": "Diminishing returns and latency impact of extended retry budgets"
+    }
+  },
+  "experimental_control": {
+    "random_seed": 42,
+    "generation_model": "gemini-1.5-flash",
+    "generation_temperature": 0.0,
+    "retrieval_k_top": 10,
+    "rerank_k_top": 5,
+    "rrf_k_parameter": 60,
+    "max_retries": 2,
+    "min_score_delta": 0.05,
+    "statistical_analysis": {
+      "confidence_level": 0.95,
+      "bootstrap_resamples": 1000,
+      "significance_tests": [
+        "paired_student_t_test",
+        "wilcoxon_signed_rank_test"
+      ],
+      "effect_size_metric": "cohen_d"
+    }
+  }
+}
