@@ -66,6 +66,13 @@ def initialize_firebase_admin() -> firebase_admin.App:
 
 
 
+def is_firebase_configured() -> bool:
+    """Check if valid GCP/Firebase service account credentials are provided."""
+    client_email = os.getenv("FIREBASE_CLIENT_EMAIL")
+    private_key = os.getenv("FIREBASE_PRIVATE_KEY")
+    return bool(client_email and private_key and "example.com" not in client_email)
+
+
 def verify_connections() -> None:
     """
     Verify connections to Firebase services and output log messages.
@@ -89,19 +96,32 @@ def verify_connections() -> None:
 
 def get_firestore_client():
     """
-    Return initialized Firestore client.
+    Return initialized Firestore client if configured, otherwise None.
     """
-    initialize_firebase_admin()
-    return firestore.client()
+    if not is_firebase_configured():
+        return None
+    try:
+        initialize_firebase_admin()
+        return firestore.client()
+    except Exception as e:
+        logger.warning(f"Firestore client connection bypassed: {e}")
+        return None
 
 
 def get_storage_bucket():
     """
-    Return initialized Storage bucket instance.
+    Return initialized Storage bucket instance if configured, otherwise None.
     """
-    initialize_firebase_admin()
-    bucket_name = os.getenv("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET", f"{os.getenv('FIREBASE_PROJECT_ID', 'veritas-ai')}.appspot.com")
-    return storage.bucket(name=bucket_name)
+    if not is_firebase_configured():
+        return None
+    try:
+        initialize_firebase_admin()
+        bucket_name = os.getenv("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET", f"{os.getenv('FIREBASE_PROJECT_ID', 'veritas-ai')}.appspot.com")
+        return storage.bucket(name=bucket_name)
+    except Exception as e:
+        logger.warning(f"Storage bucket connection bypassed: {e}")
+        return None
+
 
 
 def verify_firebase_token(id_token: str, check_revoked: bool = False) -> Dict[str, Any]:

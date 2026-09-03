@@ -90,17 +90,16 @@ class DocumentParser:
             
             if metadata["page_count"] > 0 and total_extracted_length < 100:
                 logger.info(f"Scanned PDF detected. Triggering OCR for {self.file_path}")
-                # We defer import to avoid cyclic or missing dependency issues if ocr_service isn't loaded
-                from services.ocr.ocr_service import OCRService
-                ocr_service = OCRService()
-                
-                # Use OCR instead
-                ocr_result = ocr_service.process_document(self.file_path)
-                
-                # Merge OCR pages and metadata back (preserving existing metadata like filename)
-                metadata["page_count"] = ocr_result["metadata"]["page_count"]
-                metadata["ocr_used"] = True
-                text_data["pages"] = ocr_result["pages"]
+                try:
+                    from services.ocr.ocr_service import OCRService
+                    ocr_service = OCRService()
+                    ocr_result = ocr_service.process_document(self.file_path)
+                    metadata["page_count"] = ocr_result["metadata"]["page_count"]
+                    metadata["ocr_used"] = True
+                    text_data["pages"] = ocr_result["pages"]
+                except Exception as ocr_err:
+                    logger.warning(f"OCR processing unavailable or failed for {self.file_path}: {ocr_err}. Continuing with standard extracted text.")
+
             
             result = {
                 "metadata": metadata,
