@@ -65,6 +65,8 @@ backend/storage/ocr/*
 !backend/storage/ocr/.gitkeep
 backend/storage/processed/*
 !backend/storage/processed/.gitkeep
+backend/evaluation/raw_data/*
+!backend/evaluation/raw_data/.gitkeep
 
 # IDE and OS files
 .DS_Store

@@ -1,0 +1,4376 @@
+[
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q001",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+    "answerable": true,
+    "reference_answer": "Letters to Cleo",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Letters_to_Cleo",
+        "title": "Letters to Cleo",
+        "dataset_id": "5a7cc50e554299452d57ba3e"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Letters_to_Cleo",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7cc50e554299452d57ba3e",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "comparison"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q002",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The Livesey Hal War Memorial commemorates the fallen of which war, that had over 60 million casualties?",
+    "answerable": true,
+    "reference_answer": "World War II",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Livesey_Hall_War_Memorial",
+        "title": "Livesey Hall War Memorial",
+        "dataset_id": "5a80721b554299485f5985ef"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Livesey_Hall_War_Memorial",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a80721b554299485f5985ef",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q003",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
+    "answerable": true,
+    "reference_answer": "British",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Edmund_Leach",
+        "title": "Edmund Leach",
+        "dataset_id": "5a78bd9b554299078472774a"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Edmund_Leach",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a78bd9b554299078472774a",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q004",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "When was the American lawyer, lobbyist and political consultant who was a senior member of the presidential campaign of Donald Trump born?",
+    "answerable": true,
+    "reference_answer": "April 1, 1949",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Paul_Manafort",
+        "title": "Paul Manafort",
+        "dataset_id": "5ae5736e5542990ba0bbb2b3"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Paul_Manafort",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae5736e5542990ba0bbb2b3",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q005",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "In what month is the annual documentary film festival, that is presented by the fortnightly published British journal of literary essays, held? ",
+    "answerable": true,
+    "reference_answer": "March and April",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_London_International_Documentary_Festival",
+        "title": "London International Documentary Festival",
+        "dataset_id": "5ae2b770554299495565db0f"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_London_International_Documentary_Festival",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae2b770554299495565db0f",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q006",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Where did the descendants of the group of black Indians associated with the Seminole people settle?",
+    "answerable": true,
+    "reference_answer": "Coahuila, Mexico",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Mascogos",
+        "title": "Mascogos",
+        "dataset_id": "5a85eed75542996432c5713b"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Mascogos",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a85eed75542996432c5713b",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q007",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Both Truth in Science and Discovery embrace what campaign?",
+    "answerable": true,
+    "reference_answer": "\"Teach the Controversy\" campaign",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Truth_in_Science",
+        "title": "Truth in Science",
+        "dataset_id": "5ab4e3065542990594ba9cb4"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Truth_in_Science",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab4e3065542990594ba9cb4",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q008",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Who was born first, Erika Jayne or Marco Da Silva",
+    "answerable": true,
+    "reference_answer": "Erika Jayne",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Erika_Jayne",
+        "title": "Erika Jayne",
+        "dataset_id": "5a738d27554299623ed4abf3"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Erika_Jayne",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a738d27554299623ed4abf3",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q009",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Who is Bruce Spizer an expert on, known as the most influential act of the rock era?",
+    "answerable": true,
+    "reference_answer": "The Beatles",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_The_Beatles",
+        "title": "The Beatles",
+        "dataset_id": "5ab5ed505542997d4ad1f255"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_The_Beatles",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab5ed505542997d4ad1f255",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q010",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aim\u00e9 Argand?",
+    "answerable": true,
+    "reference_answer": "Argand lamp",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Argand_lamp",
+        "title": "Argand lamp",
+        "dataset_id": "5a7a8a9c554299042af8f666"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Argand_lamp",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7a8a9c554299042af8f666",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q011",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What football club plays in the area between the old tool gates: Brook Bar and Trafford bar?",
+    "answerable": true,
+    "reference_answer": "Manchester United",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Manchester_United_F.C._in_European_football",
+        "title": "Manchester United F.C. in European football",
+        "dataset_id": "5a713a5a5542994082a3e6a9"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Manchester_United_F.C._in_European_football",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a713a5a5542994082a3e6a9",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q012",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What is the birthplace of the Senator who represents the first of 62 districts in the State Senate?",
+    "answerable": true,
+    "reference_answer": "Brooklyn, New York",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Kenneth_LaValle",
+        "title": "Kenneth LaValle",
+        "dataset_id": "5a8739a05542994775f607ab"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Kenneth_LaValle",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8739a05542994775f607ab",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q013",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Joe Walker played for which team that ends their regular season with the Civil War rivalry game?",
+    "answerable": true,
+    "reference_answer": "Oregon Ducks football",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Oregon_Ducks_football",
+        "title": "Oregon Ducks football",
+        "dataset_id": "5add673e5542992ae4cec54d"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Oregon_Ducks_football",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5add673e5542992ae4cec54d",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q014",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What is the full name of the viral respiratory disease in which Yi Guan's research helped to prevent the outbreak of?",
+    "answerable": true,
+    "reference_answer": "severe acute respiratory syndrome",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Timeline_of_the_SARS_outbreak",
+        "title": "Timeline of the SARS outbreak",
+        "dataset_id": "5ae74fc45542997b22f6a6b4"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Timeline_of_the_SARS_outbreak",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae74fc45542997b22f6a6b4",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q015",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which Netflix series \"Unbreakable\" character is Elizabeth Claire Kemper known for playing?",
+    "answerable": true,
+    "reference_answer": "Kimberly Couger \"Kimmy\" Schmidt",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Kimmy_Schmidt",
+        "title": "Kimmy Schmidt",
+        "dataset_id": "5a791a97554299148911f9f2"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Kimmy_Schmidt",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a791a97554299148911f9f2",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q016",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "A scam involving a male calling small town fast-food restaurants and pretending to be a police officer to have them strip search employees was turned into a movie of what name?",
+    "answerable": true,
+    "reference_answer": "Compliance",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Compliance_(film)",
+        "title": "Compliance (film)",
+        "dataset_id": "5a7d3470554299452d57bb56"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Compliance_(film)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7d3470554299452d57bb56",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q017",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What is Opry Mills in Nashville, Tennessee?",
+    "answerable": true,
+    "reference_answer": "super-regional shopping mall",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Opry_Mills",
+        "title": "Opry Mills",
+        "dataset_id": "5ab7f97a5542991d322237ef"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Opry_Mills",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab7f97a5542991d322237ef",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q018",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Spaceware Sky Division II is manufactured by this subsidiary, which is one of twelve subdivisions of Inner Mongolia, China?",
+    "answerable": true,
+    "reference_answer": "Ordos City",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Spaceware_Sky_Vision_II",
+        "title": "Spaceware Sky Vision II",
+        "dataset_id": "5a7b46e55542995eb53be8e5"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Spaceware_Sky_Vision_II",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7b46e55542995eb53be8e5",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q019",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Patrick Kennedy is known for his collections of Irish  folktales from a province situated in which part of Ireland ?",
+    "answerable": true,
+    "reference_answer": "the east of Ireland",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Leinster",
+        "title": "Leinster",
+        "dataset_id": "5ab7da6f55429928e1fe3928"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Leinster",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab7da6f55429928e1fe3928",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q020",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What NIFL Premier Intermediate League team did Sean Connor play for?",
+    "answerable": true,
+    "reference_answer": "Distillery",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Lisburn_Distillery_F.C.",
+        "title": "Lisburn Distillery F.C.",
+        "dataset_id": "5ae497f15542995ad6573db8"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Lisburn_Distillery_F.C.",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae497f15542995ad6573db8",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q021",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which Genus has more species Eucryphia or Lepidozamia ?",
+    "answerable": true,
+    "reference_answer": "Eucryphia",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Eucryphia",
+        "title": "Eucryphia",
+        "dataset_id": "5ab6369655429953192ad2a1"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Eucryphia",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab6369655429953192ad2a1",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "comparison"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q022",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What was the nickname of the hitman hired by an Italian American Criminal Organization?",
+    "answerable": true,
+    "reference_answer": "The Crowned Prince of the Philadelphia Mob",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Salvatore_Testa",
+        "title": "Salvatore Testa",
+        "dataset_id": "5add67915542992200553af8"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Salvatore_Testa",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5add67915542992200553af8",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q023",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The northern English anglian Kingdom in the Humber estuary spoke what dialect of english?",
+    "answerable": true,
+    "reference_answer": "Northumbrian",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Kingdom_of_Northumbria",
+        "title": "Kingdom of Northumbria",
+        "dataset_id": "5ab28b12554299449642c8ee"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Kingdom_of_Northumbria",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab28b12554299449642c8ee",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "bridge"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q024",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which case was decided first, Selle v. Gibb or Reynolds v. Sims?",
+    "answerable": true,
+    "reference_answer": "1964",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Reynolds_v._Sims",
+        "title": "Reynolds v. Sims",
+        "dataset_id": "5a8e3dc05542995085b37401"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Reynolds_v._Sims",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8e3dc05542995085b37401",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "comparison"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q025",
+    "category": "DIRECT_FACTOID",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which of these battles occurred earlier--the Battle of Peleliu or the Battle of Belleau Wood?",
+    "answerable": true,
+    "reference_answer": "The Battle of Belleau Wood",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Battle_of_Belleau_Wood",
+        "title": "Battle of Belleau Wood",
+        "dataset_id": "5add67555542992ae4cec54e"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Battle_of_Belleau_Wood",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": null,
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5add67555542992ae4cec54e",
+      "difficulty": "hard",
+      "source_type": "single_document_factoid",
+      "original_type": "comparison"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q026",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "answerable": true,
+    "reference_answer": "yes",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Ed_Wood",
+        "title": "Ed Wood",
+        "dataset_id": "5a8b57f25542995d1e6f1371"
+      },
+      {
+        "document_id": "hotpot_Scott_Derrickson",
+        "title": "Scott Derrickson",
+        "dataset_id": "5a8b57f25542995d1e6f1371"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Ed_Wood",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Scott_Derrickson",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8b57f25542995d1e6f1371",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q027",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "answerable": true,
+    "reference_answer": "Chief of Protocol",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Shirley_Temple",
+        "title": "Shirley Temple",
+        "dataset_id": "5a8c7595554299585d9e36b6"
+      },
+      {
+        "document_id": "hotpot_Kiss_and_Tell_(1945_film)",
+        "title": "Kiss and Tell (1945 film)",
+        "dataset_id": "5a8c7595554299585d9e36b6"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Shirley_Temple",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Kiss_and_Tell_(1945_film)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8c7595554299585d9e36b6",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q028",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "answerable": true,
+    "reference_answer": "Animorphs",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Animorphs",
+        "title": "Animorphs",
+        "dataset_id": "5a85ea095542994775f606a8"
+      },
+      {
+        "document_id": "hotpot_The_Hork-Bajir_Chronicles",
+        "title": "The Hork-Bajir Chronicles",
+        "dataset_id": "5a85ea095542994775f606a8"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Animorphs",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_The_Hork-Bajir_Chronicles",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a85ea095542994775f606a8",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q029",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "answerable": true,
+    "reference_answer": "no",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Laleli_Mosque",
+        "title": "Laleli Mosque",
+        "dataset_id": "5adbf0a255429947ff17385a"
+      },
+      {
+        "document_id": "hotpot_Esma_Sultan_Mansion",
+        "title": "Esma Sultan Mansion",
+        "dataset_id": "5adbf0a255429947ff17385a"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Laleli_Mosque",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Esma_Sultan_Mansion",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5adbf0a255429947ff17385a",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q030",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "answerable": true,
+    "reference_answer": "Greenwich Village, New York City",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Adriana_Trigiani",
+        "title": "Adriana Trigiani",
+        "dataset_id": "5a8e3ea95542995a26add48d"
+      },
+      {
+        "document_id": "hotpot_Big_Stone_Gap_(film)",
+        "title": "Big Stone Gap (film)",
+        "dataset_id": "5a8e3ea95542995a26add48d"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Adriana_Trigiani",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Big_Stone_Gap_(film)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8e3ea95542995a26add48d",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q031",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "answerable": true,
+    "reference_answer": "YG Entertainment",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Winner_(band)",
+        "title": "Winner (band)",
+        "dataset_id": "5abd94525542992ac4f382d2"
+      },
+      {
+        "document_id": "hotpot_2014_S/S",
+        "title": "2014 S/S",
+        "dataset_id": "5abd94525542992ac4f382d2"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Winner_(band)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_2014_S/S",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5abd94525542992ac4f382d2",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q032",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "answerable": true,
+    "reference_answer": "Eenasul Fateh",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Management_consulting",
+        "title": "Management consulting",
+        "dataset_id": "5a85b2d95542997b5ce40028"
+      },
+      {
+        "document_id": "hotpot_Eenasul_Fateh",
+        "title": "Eenasul Fateh",
+        "dataset_id": "5a85b2d95542997b5ce40028"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Management_consulting",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Eenasul_Fateh",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a85b2d95542997b5ce40028",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q033",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "answerable": true,
+    "reference_answer": "3,677 seated",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Lewiston_Maineiacs",
+        "title": "Lewiston Maineiacs",
+        "dataset_id": "5a87ab905542996e4f3088c1"
+      },
+      {
+        "document_id": "hotpot_Androscoggin_Bank_Colis\u00e9e",
+        "title": "Androscoggin Bank Colis\u00e9e",
+        "dataset_id": "5a87ab905542996e4f3088c1"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Lewiston_Maineiacs",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Androscoggin_Bank_Colis\u00e9e",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a87ab905542996e4f3088c1",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q034",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Who is older, Annie Morton or Terry Richardson?",
+    "answerable": true,
+    "reference_answer": "Terry Richardson",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Annie_Morton",
+        "title": "Annie Morton",
+        "dataset_id": "5a7bbb64554299042af8f7cc"
+      },
+      {
+        "document_id": "hotpot_Terry_Richardson",
+        "title": "Terry Richardson",
+        "dataset_id": "5a7bbb64554299042af8f7cc"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Annie_Morton",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          2
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Terry_Richardson",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7bbb64554299042af8f7cc",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q035",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Are Local H and For Against both from the United States?",
+    "answerable": true,
+    "reference_answer": "yes",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Local_H",
+        "title": "Local H",
+        "dataset_id": "5a8db19d5542994ba4e3dd00"
+      },
+      {
+        "document_id": "hotpot_For_Against",
+        "title": "For Against",
+        "dataset_id": "5a8db19d5542994ba4e3dd00"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Local_H",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_For_Against",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8db19d5542994ba4e3dd00",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q036",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+    "answerable": true,
+    "reference_answer": "Kansas Song",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_University_of_Kansas",
+        "title": "University of Kansas",
+        "dataset_id": "5a7166395542994082a3e814"
+      },
+      {
+        "document_id": "hotpot_Kansas_Song",
+        "title": "Kansas Song",
+        "dataset_id": "5a7166395542994082a3e814"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_University_of_Kansas",
+        "chunk_id": null,
+        "sentence_indices": [
+          1,
+          2
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Kansas_Song",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a7166395542994082a3e814",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q037",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and T\u00e9a Leoni?",
+    "answerable": true,
+    "reference_answer": "David Weissman",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_David_Weissman",
+        "title": "David Weissman",
+        "dataset_id": "5a877e5d5542993e715abf7d"
+      },
+      {
+        "document_id": "hotpot_The_Family_Man",
+        "title": "The Family Man",
+        "dataset_id": "5a877e5d5542993e715abf7d"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_David_Weissman",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_The_Family_Man",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a877e5d5542993e715abf7d",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q038",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+    "answerable": true,
+    "reference_answer": "1999",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_End_of_Days_(film)",
+        "title": "End of Days (film)",
+        "dataset_id": "5ab3b0bf5542992ade7c6e39"
+      },
+      {
+        "document_id": "hotpot_Oh_My_God_(Guns_N'_Roses_song)",
+        "title": "Oh My God (Guns N' Roses song)",
+        "dataset_id": "5ab3b0bf5542992ade7c6e39"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_End_of_Days_(film)",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Oh_My_God_(Guns_N'_Roses_song)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab3b0bf5542992ade7c6e39",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q039",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+    "answerable": true,
+    "reference_answer": "no",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_888_7th_Avenue",
+        "title": "888 7th Avenue",
+        "dataset_id": "5ab56e32554299637185c594"
+      },
+      {
+        "document_id": "hotpot_Random_House_Tower",
+        "title": "Random House Tower",
+        "dataset_id": "5ab56e32554299637185c594"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_888_7th_Avenue",
+        "chunk_id": null,
+        "sentence_indices": [
+          2
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Random_House_Tower",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab56e32554299637185c594",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q040",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+    "answerable": true,
+    "reference_answer": "from 1986 to 2013",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Alex_Ferguson",
+        "title": "Alex Ferguson",
+        "dataset_id": "5ab6d09255429954757d337d"
+      },
+      {
+        "document_id": "hotpot_1995\u201396_Manchester_United_F.C._season",
+        "title": "1995\u201396 Manchester United F.C. season",
+        "dataset_id": "5ab6d09255429954757d337d"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Alex_Ferguson",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_1995\u201396_Manchester_United_F.C._season",
+        "chunk_id": null,
+        "sentence_indices": [
+          2,
+          3
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab6d09255429954757d337d",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q041",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+    "answerable": true,
+    "reference_answer": "9,984",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Brown_County,_Kansas",
+        "title": "Brown County, Kansas",
+        "dataset_id": "5a75e05c55429976ec32bc5f"
+      },
+      {
+        "document_id": "hotpot_Brown_State_Fishing_Lake",
+        "title": "Brown State Fishing Lake",
+        "dataset_id": "5a75e05c55429976ec32bc5f"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Brown_County,_Kansas",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Brown_State_Fishing_Lake",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a75e05c55429976ec32bc5f",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q042",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+    "answerable": true,
+    "reference_answer": "the North Atlantic Conference",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_America_East_Conference",
+        "title": "America East Conference",
+        "dataset_id": "5ab3e45655429976abd1bcd4"
+      },
+      {
+        "document_id": "hotpot_Vermont_Catamounts_men's_soccer",
+        "title": "Vermont Catamounts men's soccer",
+        "dataset_id": "5ab3e45655429976abd1bcd4"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_America_East_Conference",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Vermont_Catamounts_men's_soccer",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab3e45655429976abd1bcd4",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q043",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+    "answerable": true,
+    "reference_answer": "yes",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Giuseppe_Verdi",
+        "title": "Giuseppe Verdi",
+        "dataset_id": "5ab29c24554299449642c932"
+      },
+      {
+        "document_id": "hotpot_Ambroise_Thomas",
+        "title": "Ambroise Thomas",
+        "dataset_id": "5ab29c24554299449642c932"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Giuseppe_Verdi",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Ambroise_Thomas",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ab29c24554299449642c932",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q044",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+    "answerable": true,
+    "reference_answer": "1969 until 1974",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Richard_Nixon",
+        "title": "Richard Nixon",
+        "dataset_id": "5ae0d4c9554299603e418468"
+      },
+      {
+        "document_id": "hotpot_Roger_O._Egeberg",
+        "title": "Roger O. Egeberg",
+        "dataset_id": "5ae0d4c9554299603e418468"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Richard_Nixon",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Roger_O._Egeberg",
+        "chunk_id": null,
+        "sentence_indices": [
+          2
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae0d4c9554299603e418468",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q045",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+    "answerable": true,
+    "reference_answer": "Robert Erskine Childers DSC",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Henry_Roth",
+        "title": "Henry Roth",
+        "dataset_id": "5a8133725542995ce29dcbdb"
+      },
+      {
+        "document_id": "hotpot_Robert_Erskine_Childers",
+        "title": "Robert Erskine Childers",
+        "dataset_id": "5a8133725542995ce29dcbdb"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Henry_Roth",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Robert_Erskine_Childers",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5a8133725542995ce29dcbdb",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q046",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+    "answerable": true,
+    "reference_answer": "Pedro Rodr\u00edguez",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Formula_One_drivers_from_Mexico",
+        "title": "Formula One drivers from Mexico",
+        "dataset_id": "5ae7a8175542993210983ed8"
+      },
+      {
+        "document_id": "hotpot_Sergio_P\u00e9rez",
+        "title": "Sergio P\u00e9rez",
+        "dataset_id": "5ae7a8175542993210983ed8"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Formula_One_drivers_from_Mexico",
+        "chunk_id": null,
+        "sentence_indices": [
+          1,
+          2
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Sergio_P\u00e9rez",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae7a8175542993210983ed8",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q047",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+    "answerable": true,
+    "reference_answer": "Sonic",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_A_Rather_Blustery_Day",
+        "title": "A Rather Blustery Day",
+        "dataset_id": "5ae6050f55429929b0807a5e"
+      },
+      {
+        "document_id": "hotpot_Jim_Cummings",
+        "title": "Jim Cummings",
+        "dataset_id": "5ae6050f55429929b0807a5e"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_A_Rather_Blustery_Day",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Jim_Cummings",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae6050f55429929b0807a5e",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q048",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+    "answerable": true,
+    "reference_answer": "keyboard function keys",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Front_Row_(software)",
+        "title": "Front Row (software)",
+        "dataset_id": "5adddccd5542997dc7907069"
+      },
+      {
+        "document_id": "hotpot_Apple_Remote",
+        "title": "Apple Remote",
+        "dataset_id": "5adddccd5542997dc7907069"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Front_Row_(software)",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Apple_Remote",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5adddccd5542997dc7907069",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q049",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+    "answerable": true,
+    "reference_answer": "Badly Drawn Boy",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Badly_Drawn_Boy",
+        "title": "Badly Drawn Boy",
+        "dataset_id": "5ae2070a5542994d89d5b313"
+      },
+      {
+        "document_id": "hotpot_Wolf_Alice",
+        "title": "Wolf Alice",
+        "dataset_id": "5ae2070a5542994d89d5b313"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Badly_Drawn_Boy",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Wolf_Alice",
+        "chunk_id": null,
+        "sentence_indices": [
+          1
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae2070a5542994d89d5b313",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "comparison",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q050",
+    "category": "MULTI_DOCUMENT_MULTIHOP",
+    "source_dataset": "hotpotqa",
+    "construction_type": "native",
+    "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+    "answerable": true,
+    "reference_answer": "World's Best Goalkeeper",
+    "gold_documents": [
+      {
+        "document_id": "hotpot_Kasper_Schmeichel",
+        "title": "Kasper Schmeichel",
+        "dataset_id": "5ae22b8d554299234fd0440f"
+      },
+      {
+        "document_id": "hotpot_Peter_Schmeichel",
+        "title": "Peter Schmeichel",
+        "dataset_id": "5ae22b8d554299234fd0440f"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "hotpot_Kasper_Schmeichel",
+        "chunk_id": null,
+        "sentence_indices": [
+          0,
+          1
+        ],
+        "page": null
+      },
+      {
+        "document_id": "hotpot_Peter_Schmeichel",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "5ae22b8d554299234fd0440f",
+      "difficulty": "hard",
+      "source_type": "multi_hop_synthesis",
+      "original_type": "bridge",
+      "num_supporting_docs": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q051",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Do Cholesterol Statin Drugs Cause Breast Cancer?",
+    "answerable": true,
+    "reference_answer": "Elevated Levels of Cholesterol-Rich Lipid Rafts in Cancer Cells Are Correlated with Apoptosis Sensitivity Induced by Cholesterol-Depleting Agents. Lipid rafts/caveolae are membrane platforms for signaling molecules that regulate various cellular functions, including cell survival. To better understand the role of rafts in tumor progression and t",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2427",
+        "title": "Elevated Levels of Cholesterol-Rich Lipid Rafts in Cancer Cells Are Correlated with Apoptosis Sensitivity Induced by Cholesterol-Depleting Agents",
+        "dataset_id": "MED-2427"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2427",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-2",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Elevated Levels of Cholesterol-Rich Lipid Rafts in Cancer Cells Are Correlated with Apoptosis Sensitivity Induced by Cholesterol-Depleting Agents"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q052",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Exploiting Autophagy to Live Longer",
+    "answerable": true,
+    "reference_answer": "Insights into the beneficial effect of caloric/ dietary restriction for a healthy and prolonged life. Over the last several years, new evidence has kept pouring in about the remarkable effect of caloric restriction (CR) on the conspicuous bedfellows- aging and cancer. Through the use of various animal",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2513",
+        "title": "Insights into the beneficial effect of caloric/ dietary restriction for a healthy and prolonged life",
+        "dataset_id": "MED-2513"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2513",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-12",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Insights into the beneficial effect of caloric/ dietary restriction for a healthy and prolonged life"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q053",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "How to Reduce Exposure to Alkylphenols Through Your Diet",
+    "answerable": true,
+    "reference_answer": "p-Nonyl-phenol: an estrogenic xenobiotic released from \"modified\" polystyrene.. Alkylphenols are widely used as plastic additives and surfactants. We report the identification of an alkylphenol, nonylphenol, as an estrogenic substance released from plastic centrifuge tubes. This ",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2644",
+        "title": "p-Nonyl-phenol: an estrogenic xenobiotic released from \"modified\" polystyrene.",
+        "dataset_id": "MED-2644"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2644",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-23",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "p-Nonyl-phenol: an estrogenic xenobiotic released from \"modified\" polystyrene."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q054",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "What\u2019s Driving America\u2019s Obesity Problem?",
+    "answerable": true,
+    "reference_answer": "The role of exercise in the treatment of obesity.. The United States is in the midst of a significant public health problem that relates to obesity and inactivity. This epidemic has far-ranging consequences for our workforce and our children and shows",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2717",
+        "title": "The role of exercise in the treatment of obesity.",
+        "dataset_id": "MED-2717"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2717",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-33",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "The role of exercise in the treatment of obesity."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q055",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Who Should be Careful About Curcumin?",
+    "answerable": true,
+    "reference_answer": "Total and soluble oxalate content of some Indian spices.. Spices, such as cinnamon, cloves, cardamom, garlic, ginger, cumin, coriander and turmeric are used all over the world as flavouring and colouring ingredients in Indian foods. Previous studies have sho",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2780",
+        "title": "Total and soluble oxalate content of some Indian spices.",
+        "dataset_id": "MED-2780"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2780",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-44",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Total and soluble oxalate content of some Indian spices."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q056",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Foods for Glaucoma",
+    "answerable": true,
+    "reference_answer": "Antioxidant intake and primary open-angle glaucoma: a prospective study.. The relation between dietary antioxidant intake and primary open-angle glaucoma risk was examined in participants aged over 40 years in the Nurses' Health Study (n = 76,200) and the Health Professiona",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2896",
+        "title": "Antioxidant intake and primary open-angle glaucoma: a prospective study.",
+        "dataset_id": "MED-2896"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2896",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-56",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Antioxidant intake and primary open-angle glaucoma: a prospective study."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q057",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "What is Actually in Chicken Nuggets?",
+    "answerable": true,
+    "reference_answer": "The autopsy of chicken nuggets reads \"chicken little\".. PURPOSE: To determine the contents of chicken nuggets from 2 national food chains. BACKGROUND: Chicken nuggets have become a major component of the American diet. We sought to determine the current co",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-2991",
+        "title": "The autopsy of chicken nuggets reads \"chicken little\".",
+        "dataset_id": "MED-2991"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-2991",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-68",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "The autopsy of chicken nuggets reads \"chicken little\"."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q058",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "What Do Meat Purge and Cola Have in Common?",
+    "answerable": true,
+    "reference_answer": "Public health impact of dietary phosphorus excess on bone and cardiovascular health in the general population.. This review explores the potential adverse impact of the increasing phosphorus content in the American diet on renal, cardiovascular, and bone health of the general population. Increasingly, studies s",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-332",
+        "title": "Public health impact of dietary phosphorus excess on bone and cardiovascular health in the general population.",
+        "dataset_id": "MED-332"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-332",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-78",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Public health impact of dietary phosphorus excess on bone and cardiovascular health in the general population."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q059",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Chronic Headaches and Pork Parasites",
+    "answerable": true,
+    "reference_answer": "Clinical manifestations, diagnosis, and treatment of neurocysticercosis.. Neurocysticercosis (NCC) is the most frequent parasitic disease of the human brain. Modern imaging studies, CT and MRI, have defined the diagnosis and characterization of the disease. Through these st",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3178",
+        "title": "Clinical manifestations, diagnosis, and treatment of neurocysticercosis.",
+        "dataset_id": "MED-3178"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3178",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-91",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Clinical manifestations, diagnosis, and treatment of neurocysticercosis."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q060",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Stopping Heart Disease in Childhood",
+    "answerable": true,
+    "reference_answer": "Relation of serum lipoprotein levels and systolic blood pressure to early atherosclerosis. The Bogalusa Heart Study.. We assessed the relation of risk factors for cardiovascular disease to early atherosclerotic lesions in the aorta and coronary arteries in 35 persons (mean age at death, 18 years). Aortic involvement ",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3254",
+        "title": "Relation of serum lipoprotein levels and systolic blood pressure to early atherosclerosis. The Bogalusa Heart Study.",
+        "dataset_id": "MED-3254"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3254",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-102",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Relation of serum lipoprotein levels and systolic blood pressure to early atherosclerosis. The Bogalusa Heart Study."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q061",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Food Dyes and ADHD",
+    "answerable": true,
+    "reference_answer": "Brain cancer associated with environmental lead exposure: evidence from implementation of a National Petrol-Lead Phase-Out Program (PLPOP) in Taiwa.... BACKGROUND AND OBJECTIVE: In 1981, a Petrol-Lead Phase-Out Program (PLPOP) was launched in Taiwan for the abatement of environmental lead emissions. The present study was intended to examine whether t",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3378",
+        "title": "Brain cancer associated with environmental lead exposure: evidence from implementation of a National Petrol-Lead Phase-Out Program (PLPOP) in Taiwa...",
+        "dataset_id": "MED-3378"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3378",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-112",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Brain cancer associated with environmental lead exposure: evidence from implementation of a National Petrol-Lead Phase-Out Program (PLPOP) in Taiwa..."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q062",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "How Citrus Might Help Keep Your Hands Warm",
+    "answerable": true,
+    "reference_answer": "Fruit and vegetable intake in relation to risk of ischemic stroke.. CONTEXT: Few studies have evaluated the relationship between fruit and vegetable intake and cardiovascular disease. OBJECTIVE: To examine the associations between fruit and vegetable intake and ischem",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3474",
+        "title": "Fruit and vegetable intake in relation to risk of ischemic stroke.",
+        "dataset_id": "MED-3474"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3474",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-123",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Fruit and vegetable intake in relation to risk of ischemic stroke."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q063",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Starving Tumors of Their Blood Supply",
+    "answerable": true,
+    "reference_answer": "Fisetin inhibits various attributes of angiogenesis in vitro and in vivo--implications for angioprevention.. Studies have shown that fisetin, a small phytochemical molecule, has antitumor activity; however, its antiangiogenic activity has not yet been examined. Accordingly, herein, we investigated the antian",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3549",
+        "title": "Fisetin inhibits various attributes of angiogenesis in vitro and in vivo--implications for angioprevention.",
+        "dataset_id": "MED-3549"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3549",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-133",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "Fisetin inhibits various attributes of angiogenesis in vitro and in vivo--implications for angioprevention."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q064",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "Are Dental X-Rays Safe?",
+    "answerable": true,
+    "reference_answer": "The use of dental radiographs: update and recommendations.. BACKGROUND AND OVERVIEW: The National Council on Radiation Protection & Measurements updated its recommendations on radiation protection in dentistry in 2003, the Centers for Disease Control and Preve",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3618",
+        "title": "The use of dental radiographs: update and recommendations.",
+        "dataset_id": "MED-3618"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3618",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-143",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "The use of dental radiographs: update and recommendations."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q065",
+    "category": "LEXICAL_SEMANTIC_DIVERGENCE",
+    "source_dataset": "nfcorpus",
+    "construction_type": "native",
+    "question": "How Should I Take Probiotics?",
+    "answerable": true,
+    "reference_answer": "The impact of meals on a probiotic during transit through a model of the human upper gastrointestinal tract.. Commercial literature on various probiotic products suggests that they can be taken before meals, during meals or after meals or even without meals. This has led to serious confusion for the industry ",
+    "gold_documents": [
+      {
+        "document_id": "nfcorpus_MED-3679",
+        "title": "The impact of meals on a probiotic during transit through a model of the human upper gastrointestinal tract.",
+        "dataset_id": "MED-3679"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "nfcorpus_MED-3679",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "LEXICAL_DENSE_DIVERGENCE",
+    "expected_final_action": "PASS",
+    "metadata": {
+      "original_id": "PLAIN-153",
+      "difficulty": "hard",
+      "source_type": "vocabulary_mismatch_biomedical",
+      "qrel_relevance_score": "2",
+      "corpus_title": "The impact of meals on a probiotic during transit through a model of the human upper gastrointestinal tract."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q066",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15592: Seventy years ago, Anne Frank died of typhus in a Nazi concentration camp at the...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15592_source",
+        "title": "Source Article 15592",
+        "dataset_id": "15592"
+      },
+      {
+        "document_id": "ragtruth_15592_variant",
+        "title": "Variant Report 15592",
+        "dataset_id": "2"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15592_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15592_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15592_source",
+        "passage_excerpt": "Seventy years ago, Anne Frank died of typhus in a Nazi concentration camp at the age of 15. Just two weeks after her supposed death on March 31, 1945, the Bergen-Belsen concentration camp where she had been imprisoned was liberated -- timing that showed how close the Jewish diarist had been to survi",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15592_variant",
+        "passage_excerpt": "February 7, 2022.",
+        "claim": "EVIDENT CONFLICT Original: February 7 (1945) Generated: February 7, 2022"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15592",
+      "response_id": "2",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: February 7 (1945)\nGenerated: February 7, 2022"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q067",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15593: Andrew Getty, one of the heirs to billions of oil money, appears to have died of...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15593_source",
+        "title": "Source Article 15593",
+        "dataset_id": "15593"
+      },
+      {
+        "document_id": "ragtruth_15593_variant",
+        "title": "Variant Report 15593",
+        "dataset_id": "10"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15593_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15593_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15593_source",
+        "passage_excerpt": "Andrew Getty, one of the heirs to billions of oil money, appears to have died of natural causes, a Los Angeles Police Department spokesman said. The coroner's preliminary assessment is there was no foul play involved in the death of Getty, grandson of oil tycoon J. Paul Getty, said Detective Meghan ",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15593_variant",
+        "passage_excerpt": "His net worth was estimated to be $2.1 billion.",
+        "claim": "EVIDENT CONFLICT: Original:  Gordon Getty whose net worth is stated as $2.1 billion. AIGC: Andrew Getty's net worth was estimated to be $2.1"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15593",
+      "response_id": "10",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal:  Gordon Getty whose net worth is stated as $2.1 billion.\nAIGC: Andrew Getty's net worth was estimated to be $2.1"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q068",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15596: The FBI charged a Philadelphia woman on Thursday with trying to travel overseas ...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15596_source",
+        "title": "Source Article 15596",
+        "dataset_id": "15596"
+      },
+      {
+        "document_id": "ragtruth_15596_variant",
+        "title": "Variant Report 15596",
+        "dataset_id": "28"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15596_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15596_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15596_source",
+        "passage_excerpt": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that wer",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15596_variant",
+        "passage_excerpt": "Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week.",
+        "claim": "EVIDENT CONFLICT: Original: Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week. AIGC: It is Keonna Thomas who is charged of attempting to join ISIS. Meanwhile, the other two were arrested and accused of planning to build an explosive device for attacks in the United States."
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15596",
+      "response_id": "28",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal: Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week.\nAIGC: It is Keonna Thomas who is charged of attempting to join ISIS. Meanwhile, the other two were arrested and accused of planning to build an explosive device for attacks in the United States."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q069",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15598: Atlanta (CNN)It was a scene worthy of any top cop show on TV -- bullets flying, ...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15598_source",
+        "title": "Source Article 15598",
+        "dataset_id": "15598"
+      },
+      {
+        "document_id": "ragtruth_15598_variant",
+        "title": "Variant Report 15598",
+        "dataset_id": "39"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15598_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15598_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15598_source",
+        "passage_excerpt": "Atlanta (CNN)It was a scene worthy of any top cop show on TV -- bullets flying, banged-up cars and the FBI chasing an armed robbery suspect. In the end, two agents were injured in a crash and the suspect was shot before being captured. FBI agents and task force officers were following 36-year-old Ke",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15598_variant",
+        "passage_excerpt": "injured two suspects",
+        "claim": "EVIDENT CONFLICT: Original: there is only one suspect who is injured AIGC: injured two suspects "
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15598",
+      "response_id": "39",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal: there is only one suspect who is injured\nAIGC: injured two suspects\n"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q070",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15599: Blue Bell ice cream has temporarily shut down one of its manufacturing plants ov...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15599_source",
+        "title": "Source Article 15599",
+        "dataset_id": "15599"
+      },
+      {
+        "document_id": "ragtruth_15599_variant",
+        "title": "Variant Report 15599",
+        "dataset_id": "44"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15599_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15599_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15599_source",
+        "passage_excerpt": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health officials warned consumers Friday not to eat any Blue Bell-branded products made at the company's Broken Arr",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15599_variant",
+        "passage_excerpt": "No Blue Bell Ice Cream Is Linked to Infections in Patients",
+        "claim": "EVIDENT CONFLICT: Original:  Five people were infected and three died in the past year in Kansas from listeria AIGC: No Blue Bell Ice Cream Is Linked to Infections in Patients"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15599",
+      "response_id": "44",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal:  Five people were infected and three died in the past year in Kansas from listeria\nAIGC: No Blue Bell Ice Cream Is Linked to Infections in Patients"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q071",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15600: When Hong Kong police answered a call in the early hours of a Saturday morning l...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15600_source",
+        "title": "Source Article 15600",
+        "dataset_id": "15600"
+      },
+      {
+        "document_id": "ragtruth_15600_variant",
+        "title": "Variant Report 15600",
+        "dataset_id": "51"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15600_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15600_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15600_source",
+        "passage_excerpt": "When Hong Kong police answered a call in the early hours of a Saturday morning last November, they encountered a grisly scene and an alleged crime that shocked the city. One woman was lying on the floor with cuts to her neck and buttocks. Another was stuffed inside a suitcase on the balcony. A forme",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15600_variant",
+        "passage_excerpt": "On November 1, 2020,",
+        "claim": "EVIDENT CONFLICT: Original: happened in November in unspecified year AIGC: On November 1, 2020 (when the incident happened) "
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15600",
+      "response_id": "51",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal: happened in November in unspecified year\nAIGC: On November 1, 2020 (when the incident happened)\n"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q072",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15603: Hong Kong (CNN)Six people were hurt after an explosion at a controversial chemic...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15603_source",
+        "title": "Source Article 15603",
+        "dataset_id": "15603"
+      },
+      {
+        "document_id": "ragtruth_15603_variant",
+        "title": "Variant Report 15603",
+        "dataset_id": "64"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15603_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15603_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15603_source",
+        "passage_excerpt": "Hong Kong (CNN)Six people were hurt after an explosion at a controversial chemical plant in China's southeastern Fujian province sparked a huge fire, provincial authorities told state media. The plant, located in Zhangzhou city, produces paraxylene (PX), a reportedly carcinogenic chemical used in th",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15603_variant",
+        "passage_excerpt": "injured 5 people",
+        "claim": "EVIDENT CONFLICT: Original: six  people injured AIGC:  injured 5 people "
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15603",
+      "response_id": "64",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT:\nOriginal: six  people injured\nAIGC:  injured 5 people\n"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q073",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15606: What do we have for the contestant on \"The Price Is Right\"? A brand-new car! Who...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15606_source",
+        "title": "Source Article 15606",
+        "dataset_id": "15606"
+      },
+      {
+        "document_id": "ragtruth_15606_variant",
+        "title": "Variant Report 15606",
+        "dataset_id": "80"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15606_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15606_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15606_source",
+        "passage_excerpt": "What do we have for the contestant on \"The Price Is Right\"? A brand-new car! Whoops. That wasn't supposed to happen. On Thursday's edition of the popular game show, model Manuela Arbelaez accidentally revealed the correct answer to a guessing game for a new Hyundai Sonata. Host Drew Carey couldn't s",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15606_variant",
+        "passage_excerpt": "contestant Manuela Arbelaez",
+        "claim": "EVIDENT CONFLICT Original: model Manuela Arbelaez Generated: contestant Manuela Arbelaez"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15606",
+      "response_id": "80",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: model Manuela Arbelaez\nGenerated: contestant Manuela Arbelaez"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q074",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15607: Nine British citizens were arrested in Turkey on Wednesday, suspected of trying ...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15607_source",
+        "title": "Source Article 15607",
+        "dataset_id": "15607"
+      },
+      {
+        "document_id": "ragtruth_15607_variant",
+        "title": "Variant Report 15607",
+        "dataset_id": "86"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15607_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15607_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15607_source",
+        "passage_excerpt": "Nine British citizens were arrested in Turkey on Wednesday, suspected of trying to cross illegally into Syria, the Turkish military said on its website. The group included four children -- the oldest being 10 or 11, with the youngest born in 2013, a Turkish official told CNN on condition of anonymit",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15607_variant",
+        "passage_excerpt": "five men and four women",
+        "claim": "EVIDENT CONFLICT Original: Accompanying the children were three men and two women Generated: five men and four women"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15607",
+      "response_id": "86",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: Accompanying the children were three men and two women\nGenerated: five men and four women"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q075",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15611: \"A long, long, time ago?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15611_source",
+        "title": "Source Article 15611",
+        "dataset_id": "15611"
+      },
+      {
+        "document_id": "ragtruth_15611_variant",
+        "title": "Variant Report 15611",
+        "dataset_id": "112"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15611_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15611_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15611_source",
+        "passage_excerpt": "\"A long, long, time ago...\" Those five words, when uttered or sung, makes baby boomers immediately think of Don McLean's pop masterpiece \"American Pie.\"  It's hard to believe that his phenomenal 8\u00bd minute allegory, which millions of Americans know by heart, is 44 years old.  All sorts of historical ",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15611_variant",
+        "passage_excerpt": "1950s and 60s.",
+        "claim": "EVIDENT CONFLICT Original: '50s, '60s and '70s Generated: 1950s and 60s."
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15611",
+      "response_id": "112",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: '50s, '60s and '70s\nGenerated: 1950s and 60s."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q076",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15613: Their relationship led to jail time for her, but Mary Kay Letourneau Fualaau wan...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15613_source",
+        "title": "Source Article 15613",
+        "dataset_id": "15613"
+      },
+      {
+        "document_id": "ragtruth_15613_variant",
+        "title": "Variant Report 15613",
+        "dataset_id": "124"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15613_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15613_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15613_source",
+        "passage_excerpt": "Their relationship led to jail time for her, but Mary Kay Letourneau Fualaau wants the world to know that she and her husband, Vili Fualaau, are still happily together. She was a married 34-year-old teacher and mother of four in Seattle in 1996 when she began an affair with Fualaau, her 13-year-old ",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15613_variant",
+        "passage_excerpt": "They plan to teach again",
+        "claim": "EVIDENT CONFLICT Original: her surprising plans to teach again Generated: They plan to teach again"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15613",
+      "response_id": "124",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: her surprising plans to teach again\nGenerated: They plan to teach again"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q077",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15614: Pardon us, \"Lost\" fans, but April 8 wasn't only your day?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15614_source",
+        "title": "Source Article 15614",
+        "dataset_id": "15614"
+      },
+      {
+        "document_id": "ragtruth_15614_variant",
+        "title": "Variant Report 15614",
+        "dataset_id": "126"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15614_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15614_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15614_source",
+        "passage_excerpt": "Pardon us, \"Lost\" fans, but April 8 wasn't only your day. Yes, we know the significance of April 8, 2015, and the alignment of 4:23.42 p.m. on that date to everyone obsessed with the hit ABC show, and we heard about the general geek-outs that were occurring. But don't forget, April 8 was also \"Rex M",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15614_variant",
+        "passage_excerpt": "due to the show's repeated use of the numbers 4, 8, 15, 16, 23 and 42",
+        "claim": "EVIDENT CONFLICT Original: the significance of April 8, 2015, and the alignment of 4:23.42 p.m. Generated: due to the show's repeated use of the numbers 4, 8, 15, 16, 23 and 42"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15614",
+      "response_id": "126",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: the significance of April 8, 2015, and the alignment of 4:23.42 p.m.\nGenerated: due to the show's repeated use of the numbers 4, 8, 15, 16, 23 and 42"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q078",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15616: Kanye West has settled a lawsuit with a paparazzi photographer he assaulted -- a...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15616_source",
+        "title": "Source Article 15616",
+        "dataset_id": "15616"
+      },
+      {
+        "document_id": "ragtruth_15616_variant",
+        "title": "Variant Report 15616",
+        "dataset_id": "141"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15616_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15616_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15616_source",
+        "passage_excerpt": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted -- and the two have shaken on it. The photographer, Daniel Ramos, had filed the civil suit against West  after the hip-hop star attacked him and tried to wrestle his camera from him in July 2013 at Los Angeles International ",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15616_variant",
+        "passage_excerpt": "West pleaded guilty to battery and was sentenced to probation and anger management classes",
+        "claim": "EVIDENT CONFLICT Original: West pleaded no contest last year to a misdemeanor count of battery over the scuffle. Generated: West pleaded guilty to battery and was sentenced to probation and anger management classes"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15616",
+      "response_id": "141",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: West pleaded no contest last year to a misdemeanor count of battery over the scuffle.\nGenerated: West pleaded guilty to battery and was sentenced to probation and anger management classes"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q079",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15617: Blues legend B?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15617_source",
+        "title": "Source Article 15617",
+        "dataset_id": "15617"
+      },
+      {
+        "document_id": "ragtruth_15617_variant",
+        "title": "Variant Report 15617",
+        "dataset_id": "146"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15617_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15617_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15617_source",
+        "passage_excerpt": "Blues legend B.B. King was hospitalized for dehydration, though the ailment didn't keep him out for long. King's dehydration was caused by his Type II diabetes, but he \"is much better,\" his daughter, Claudette King, told the Los Angeles Times. The legendary guitarist and vocalist released a statemen",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15617_variant",
+        "passage_excerpt": "The cause of his dehydration was attributed to his busy schedule and not drinking enough water.",
+        "claim": "EVIDENT CONFLICT Original: King's dehydration was caused by his Type II diabetes Generated: The cause of his dehydration was attributed to his busy schedule and not drinking enough water."
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15617",
+      "response_id": "146",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: King's dehydration was caused by his Type II diabetes\nGenerated: The cause of his dehydration was attributed to his busy schedule and not drinking enough water."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q080",
+    "category": "INTER_DOCUMENT_CONTRADICTION",
+    "source_dataset": "ragtruth",
+    "construction_type": "native",
+    "question": "According to records on source 15622: An Amnesty International report is calling for authorities to address the number...?",
+    "answerable": true,
+    "reference_answer": "Conflict detected across sources. Primary source contradicts variant report.",
+    "gold_documents": [
+      {
+        "document_id": "ragtruth_15622_source",
+        "title": "Source Article 15622",
+        "dataset_id": "15622"
+      },
+      {
+        "document_id": "ragtruth_15622_variant",
+        "title": "Variant Report 15622",
+        "dataset_id": "176"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ragtruth_15622_source",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ragtruth_15622_variant",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "source_id": "ragtruth_15622_source",
+        "passage_excerpt": "An Amnesty International report is calling for authorities to address the number of attacks on women's rights activists in Afghanistan. The report, entitled \"Their Lives on the Line,\" examines the persecution of activists and other champions of women's rights not only by the Taliban and tribal warlo",
+        "claim": "Original factual ground truth from primary source"
+      },
+      {
+        "source_id": "ragtruth_15622_variant",
+        "passage_excerpt": "carrying her own coffin during her funeral",
+        "claim": "EVIDENT CONFLICT Original: hoisting the victim's coffin on their shoulders Generated: carrying her own coffin during her funeral"
+      }
+    ],
+    "expected_failure_mode": "INTER_DOCUMENT_CONFLICT",
+    "expected_final_action": "CLARIFY",
+    "metadata": {
+      "original_source_id": "15622",
+      "response_id": "176",
+      "task_type": "Summary",
+      "conflict_meta": "EVIDENT CONFLICT\nOriginal: hoisting the victim's coffin on their shoulders\nGenerated: carrying her own coffin during her funeral"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q081",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the launch year of Atlas?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Atlas (rocket family) [1957] or Atlas (robot by Boston Dynamics) [2013].",
+    "entity_candidates": [
+      "Atlas (rocket family) [1957]",
+      "Atlas (robot by Boston Dynamics) [2013]"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_atlas_1",
+        "title": "Atlas (rocket family) [1957]",
+        "dataset_id": "ambig_atlas"
+      },
+      {
+        "document_id": "ambig_atlas_2",
+        "title": "Atlas (robot by Boston Dynamics) [2013]",
+        "dataset_id": "ambig_atlas"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_atlas_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_atlas_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Atlas\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Atlas",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q082",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "Where is Columbia located?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Columbia University (New York City) or Columbia River (Pacific Northwest).",
+    "entity_candidates": [
+      "Columbia University (New York City)",
+      "Columbia River (Pacific Northwest)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_columbia_1",
+        "title": "Columbia University (New York City)",
+        "dataset_id": "ambig_columbia"
+      },
+      {
+        "document_id": "ambig_columbia_2",
+        "title": "Columbia River (Pacific Northwest)",
+        "dataset_id": "ambig_columbia"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_columbia_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_columbia_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Columbia\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Columbia",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q083",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the maximum speed of Mercury?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Mercury (planet in orbit) or Project Mercury (spacecraft).",
+    "entity_candidates": [
+      "Mercury (planet in orbit)",
+      "Project Mercury (spacecraft)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_mercury_1",
+        "title": "Mercury (planet in orbit)",
+        "dataset_id": "ambig_mercury"
+      },
+      {
+        "document_id": "ambig_mercury_2",
+        "title": "Project Mercury (spacecraft)",
+        "dataset_id": "ambig_mercury"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_mercury_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_mercury_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Mercury\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Mercury",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q084",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "Who was the original founder of Genesis?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Genesis (English rock band, 1967) or Genesis Motor (Automotive manufacturer, 2015).",
+    "entity_candidates": [
+      "Genesis (English rock band, 1967)",
+      "Genesis Motor (Automotive manufacturer, 2015)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_genesis_1",
+        "title": "Genesis (English rock band, 1967)",
+        "dataset_id": "ambig_genesis"
+      },
+      {
+        "document_id": "ambig_genesis_2",
+        "title": "Genesis Motor (Automotive manufacturer, 2015)",
+        "dataset_id": "ambig_genesis"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_genesis_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_genesis_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Genesis\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Genesis",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q085",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the total capacity of Titan?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Titan (supercomputer at Oak Ridge) or Titan (largest moon of Saturn).",
+    "entity_candidates": [
+      "Titan (supercomputer at Oak Ridge)",
+      "Titan (largest moon of Saturn)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_titan_1",
+        "title": "Titan (supercomputer at Oak Ridge)",
+        "dataset_id": "ambig_titan"
+      },
+      {
+        "document_id": "ambig_titan_2",
+        "title": "Titan (largest moon of Saturn)",
+        "dataset_id": "ambig_titan"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_titan_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_titan_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Titan\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Titan",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q086",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "Where are the global headquarters of Olympus located?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Olympus Corporation (Tokyo, Japan) or Mount Olympus (Thessaly, Greece).",
+    "entity_candidates": [
+      "Olympus Corporation (Tokyo, Japan)",
+      "Mount Olympus (Thessaly, Greece)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_olympus_1",
+        "title": "Olympus Corporation (Tokyo, Japan)",
+        "dataset_id": "ambig_olympus"
+      },
+      {
+        "document_id": "ambig_olympus_2",
+        "title": "Mount Olympus (Thessaly, Greece)",
+        "dataset_id": "ambig_olympus"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_olympus_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_olympus_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Olympus\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Olympus",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q087",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the core architecture of Phoenix?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Phoenix (NASA Mars lander spacecraft) or Phoenix (Elixir web framework).",
+    "entity_candidates": [
+      "Phoenix (NASA Mars lander spacecraft)",
+      "Phoenix (Elixir web framework)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_phoenix_1",
+        "title": "Phoenix (NASA Mars lander spacecraft)",
+        "dataset_id": "ambig_phoenix"
+      },
+      {
+        "document_id": "ambig_phoenix_2",
+        "title": "Phoenix (Elixir web framework)",
+        "dataset_id": "ambig_phoenix"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_phoenix_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_phoenix_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Phoenix\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Phoenix",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q088",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "When was Horizon first broadcast or released?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Horizon (BBC science television series, 1964) or Horizon Zero Dawn (video game, 2017).",
+    "entity_candidates": [
+      "Horizon (BBC science television series, 1964)",
+      "Horizon Zero Dawn (video game, 2017)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_horizon_1",
+        "title": "Horizon (BBC science television series, 1964)",
+        "dataset_id": "ambig_horizon"
+      },
+      {
+        "document_id": "ambig_horizon_2",
+        "title": "Horizon Zero Dawn (video game, 2017)",
+        "dataset_id": "ambig_horizon"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_horizon_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_horizon_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Horizon\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Horizon",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q089",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the primary mission of Apollo?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Project Apollo (NASA lunar landing program) or Apollo GraphQL (open-source data graph platform).",
+    "entity_candidates": [
+      "Project Apollo (NASA lunar landing program)",
+      "Apollo GraphQL (open-source data graph platform)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_apollo_1",
+        "title": "Project Apollo (NASA lunar landing program)",
+        "dataset_id": "ambig_apollo"
+      },
+      {
+        "document_id": "ambig_apollo_2",
+        "title": "Apollo GraphQL (open-source data graph platform)",
+        "dataset_id": "ambig_apollo"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_apollo_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_apollo_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Apollo\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Apollo",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q090",
+    "category": "AMBIGUOUS_ENTITY",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the dimensional representation of Vector?",
+    "answerable": true,
+    "clarification_required": true,
+    "reference_answer": "Ambiguous query: refers to either Vector (geometric vector graphics) or Vector space (linear algebra mathematical structure).",
+    "entity_candidates": [
+      "Vector (geometric vector graphics)",
+      "Vector space (linear algebra mathematical structure)"
+    ],
+    "gold_documents": [
+      {
+        "document_id": "ambig_vector_1",
+        "title": "Vector (geometric vector graphics)",
+        "dataset_id": "ambig_vector"
+      },
+      {
+        "document_id": "ambig_vector_2",
+        "title": "Vector space (linear algebra mathematical structure)",
+        "dataset_id": "ambig_vector"
+      }
+    ],
+    "gold_evidence": [
+      {
+        "document_id": "ambig_vector_1",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      },
+      {
+        "document_id": "ambig_vector_2",
+        "chunk_id": null,
+        "sentence_indices": [
+          0
+        ],
+        "page": null
+      }
+    ],
+    "expected_failure_mode": "COVERAGE_GAP",
+    "expected_final_action": "CLARIFY",
+    "construction_notes": "Controlled multi-entity ambiguity test: Surface entity \"Vector\" matches multiple distinct concepts present in multi-document corpus.",
+    "metadata": {
+      "entity_surface_form": "Vector",
+      "difficulty": "hard",
+      "candidates_count": 2
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q091",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the quantum telemetry frequency of spacecraft Voyager 9 in 2099?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Fictitious future space mission not present in any indexed document.",
+    "metadata": {
+      "unanswerable_reason": "Fictitious future space mission not present in any indexed document.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q092",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "Who was awarded the Nobel Prize in Physics in the year 2142?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Future date beyond human history and outside corpus boundaries.",
+    "metadata": {
+      "unanswerable_reason": "Future date beyond human history and outside corpus boundaries.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q093",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the secret internal administrative root password for Reactor Omega?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Fictitious administrative credential absent from documentation.",
+    "metadata": {
+      "unanswerable_reason": "Fictitious administrative credential absent from documentation.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q094",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What was the exact stock closing price of Hyperion Corp on February 30, 2025?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Invalid calendar date and fictitious corporate entity.",
+    "metadata": {
+      "unanswerable_reason": "Invalid calendar date and fictitious corporate entity.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q095",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the private home phone number of the NASA Administrator in 1969?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Private personal information strictly unrecorded in public corpus abstracts.",
+    "metadata": {
+      "unanswerable_reason": "Private personal information strictly unrecorded in public corpus abstracts.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q096",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "Which extraterrestrial civilization established diplomatic contact with Earth at Alpha Centauri in 1982?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Fictitious historical assertion with zero factual grounding in corpus.",
+    "metadata": {
+      "unanswerable_reason": "Fictitious historical assertion with zero factual grounding in corpus.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q097",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the battery capacity of the unreleased Apple iPhone 25 Pro Max?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Unreleased speculative product nonexistent in knowledge base.",
+    "metadata": {
+      "unanswerable_reason": "Unreleased speculative product nonexistent in knowledge base.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q098",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What was the total national GDP of the lost continent of Atlantis in 500 BC?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Mythological civilization without historical economic records.",
+    "metadata": {
+      "unanswerable_reason": "Mythological civilization without historical economic records.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q099",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What are the confidential safety audit results of the fictitious Reactor Omega facility?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Fictitious industrial facility unsupported by corpus.",
+    "metadata": {
+      "unanswerable_reason": "Fictitious industrial facility unsupported by corpus.",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "benchmark_version": "v1.0",
+    "id": "q100",
+    "category": "UNANSWERABLE_OUT_OF_DOMAIN",
+    "source_dataset": "controlled",
+    "construction_type": "controlled",
+    "question": "What is the warp drive displacement efficiency of the starship Enterprise NCC-1701-D?",
+    "answerable": false,
+    "reference_answer": null,
+    "gold_documents": [],
+    "gold_evidence": [],
+    "expected_failure_mode": "OUT_OF_DOMAIN",
+    "expected_final_action": "STOP",
+    "construction_notes": "Controlled out-of-domain query: Fictional science-fiction specification outside scientific document partition.",
+    "metadata": {
+      "unanswerable_reason": "Fictional science-fiction specification outside scientific document partition.",
+      "difficulty": "hard"
+    }
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "manifest_version": "1.0",
+  "created_at": "2026-09-03",
+  "description": "Raw scientific evaluation datasets portfolio for Veritas AI research benchmark",
+  "datasets": {
+    "HotpotQA_Dev_Distractor": {
+      "name": "HotpotQA (Distractor Setting, Dev Split)",
+      "source": "https://huggingface.co/datasets/namlh2004/hotpotqa/resolve/7e54db4656209750ff487f6fdf8e39a66dba136b/hotpot_dev_distractor_v1.json",
+      "license": "CC BY-SA 4.0",
+      "records_count": 7405,
+      "files": [
+        {
+          "path": "evaluation/raw_data/hotpot_dev_distractor_v1.json",
+          "size_bytes": 61065698,
+          "sha256": "e3da074df24e8369009918aa5cdbdd254dadcde4c63f7569d36afd6f2268caa8"
+        }
+      ],
+      "research_purpose": "Evaluates multi-hop multi-document synthesis, cross-document reasoning, and supporting sentence attribution."
+    },
+    "BEIR_SciFact": {
+      "name": "BEIR SciFact (Test Split)",
+      "source": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/scifact.zip",
+      "license": "CC BY-SA 4.0",
+      "corpus_docs": 5183,
+      "queries_count": 300,
+      "files": [
+        {
+          "path": "evaluation/raw_data/scifact/corpus.jsonl",
+          "size_bytes": 8106566,
+          "sha256": "dec31c8182f3d744c7d2c09423756fd1d17cbef75808db13ba01cc0aab4d1ac6"
+        },
+        {
+          "path": "evaluation/raw_data/scifact/queries.jsonl",
+          "size_bytes": 209731,
+          "sha256": "8ff84a7c903f722981cd8d595c022660140c51867b27608a6d4910db86080313"
+        },
+        {
+          "path": "evaluation/raw_data/scifact/qrels/test.tsv",
+          "size_bytes": 5389,
+          "sha256": "0864bb985e0ca2367ba217977e72004d549054b2b06666ed9d4825ac7c21284c"
+        }
+      ],
+      "research_purpose": "Evaluates dense vs lexical retrieval effectiveness and scientific claim verification."
+    },
+    "BEIR_NFCorpus": {
+      "name": "BEIR NFCorpus (Test Split)",
+      "source": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nfcorpus.zip",
+      "license": "CC BY-SA 4.0",
+      "corpus_docs": 3633,
+      "queries_count": 323,
+      "files": [
+        {
+          "path": "evaluation/raw_data/nfcorpus/corpus.jsonl",
+          "size_bytes": 6219364,
+          "sha256": "10cc83ef1826b1425e6a87090b5140b39b27755d5a27e48215a88611c899991f"
+        },
+        {
+          "path": "evaluation/raw_data/nfcorpus/queries.jsonl",
+          "size_bytes": 441466,
+          "sha256": "d024e6621b84925d485ae473d316a0c3af31c62c8068a59fb29d22f7613aef2a"
+        },
+        {
+          "path": "evaluation/raw_data/nfcorpus/qrels/test.tsv",
+          "size_bytes": 279572,
+          "sha256": "f8fba6ef3d4dd9c3a242a8ba4ae38276fc3622fce7dcbae764766d564542fd2a"
+        }
+      ],
+      "research_purpose": "Evaluates lexical-dense divergence and vocabulary gap reformulation under terminology mismatch."
+    },
+    "RAGTruth": {
+      "name": "RAGTruth (Full Dataset)",
+      "source": "https://github.com/ParticleMedia/RAGTruth",
+      "license": "MIT License",
+      "source_records": 2965,
+      "response_records": 17790,
+      "files": [
+        {
+          "path": "evaluation/raw_data/ragtruth/source_info.jsonl",
+          "size_bytes": 15117971,
+          "sha256": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b"
+        },
+        {
+          "path": "evaluation/raw_data/ragtruth/response.jsonl",
+          "size_bytes": 21458735,
+          "sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073"
+        }
+      ],
+      "research_purpose": "Evaluates NLI contradiction detection, span-level hallucination identification, and evidence sufficiency taxonomy."
+    }
+  }
+}

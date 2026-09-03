@@ -1,0 +1,31 @@
+{
+  "benchmark_file": "/home/hp/veritas-ai/backend/evaluation/benchmark_dataset.json",
+  "total_records": 100,
+  "category_distribution": {
+    "DIRECT_FACTOID": 25,
+    "MULTI_DOCUMENT_MULTIHOP": 25,
+    "LEXICAL_SEMANTIC_DIVERGENCE": 15,
+    "INTER_DOCUMENT_CONTRADICTION": 15,
+    "AMBIGUOUS_ENTITY": 10,
+    "UNANSWERABLE_OUT_OF_DOMAIN": 10
+  },
+  "source_dataset_distribution": {
+    "hotpotqa": 50,
+    "nfcorpus": 15,
+    "ragtruth": 15,
+    "controlled": 20
+  },
+  "native_records_count": 80,
+  "controlled_records_count": 20,
+  "answerable_count": 90,
+  "unanswerable_count": 10,
+  "contradiction_cases_count": 15,
+  "ambiguity_cases_count": 10,
+  "duplicate_ids_count": 0,
+  "duplicate_questions_count": 0,
+  "validation_passed": true,
+  "errors_count": 0,
+  "warnings_count": 0,
+  "errors": [],
+  "warnings": []
+}
