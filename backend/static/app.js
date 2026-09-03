@@ -236,17 +236,21 @@ window.loadDashboard = loadDashboard;
 // 2. UPLOAD CONTROLLER
 const dropzone = document.getElementById("dropzone");
 const fileInput = document.getElementById("fileInput");
-const selectedFileInfo = document.getElementById("selectedFileInfo");
-const selectedFileName = document.getElementById("selectedFileName");
-const selectedFileSize = document.getElementById("selectedFileSize");
+const selectedFilesContainer = document.getElementById("selectedFilesContainer");
+const selectedFilesList = document.getElementById("selectedFilesList");
+const selectedFilesCountTitle = document.getElementById("selectedFilesCountTitle");
+const clearAllFilesBtn = document.getElementById("clearAllFilesBtn");
 const startUploadBtn = document.getElementById("startUploadBtn");
 const uploadProgress = document.getElementById("uploadProgress");
+const uploadStatusText = document.getElementById("uploadStatusText");
 const uploadAlert = document.getElementById("uploadAlert");
 const uploadSuccess = document.getElementById("uploadSuccess");
 
+let selectedUploadFiles = [];
+
 fileInput.addEventListener("change", (e) => {
-  if (e.target.files && e.target.files[0]) {
-    setUploadFile(e.target.files[0]);
+  if (e.target.files && e.target.files.length > 0) {
+    addUploadFiles(Array.from(e.target.files));
   }
 });
 
@@ -262,62 +266,136 @@ dropzone.addEventListener("dragleave", () => {
 dropzone.addEventListener("drop", (e) => {
   e.preventDefault();
   dropzone.style.borderColor = "var(--border-color)";
-  if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-    setUploadFile(e.dataTransfer.files[0]);
+  if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+    addUploadFiles(Array.from(e.dataTransfer.files));
   }
 });
 
-function setUploadFile(file) {
+function addUploadFiles(files) {
   uploadAlert.style.display = "none";
   uploadSuccess.style.display = "none";
 
-  if (!file.name.toLowerCase().endsWith(".pdf")) {
-    uploadAlert.textContent = "Please select a valid PDF file.";
+  let invalidFilesCount = 0;
+  files.forEach(file => {
+    if (!file.name.toLowerCase().endsWith(".pdf")) {
+      invalidFilesCount++;
+      return;
+    }
+    // Prevent adding identical duplicates in current selection queue
+    const exists = selectedUploadFiles.some(f => f.name === file.name && f.size === file.size);
+    if (!exists) {
+      selectedUploadFiles.push(file);
+    }
+  });
+
+  if (invalidFilesCount > 0) {
+    uploadAlert.textContent = `Ignored ${invalidFilesCount} non-PDF file(s). Only PDF documents are supported.`;
     uploadAlert.style.display = "block";
+  }
+
+  renderSelectedFiles();
+}
+
+function renderSelectedFiles() {
+  if (!selectedFilesContainer || !selectedFilesList) return;
+
+  if (selectedUploadFiles.length === 0) {
+    selectedFilesContainer.style.display = "none";
+    startUploadBtn.style.display = "none";
+    selectedFilesList.innerHTML = "";
     return;
   }
 
-  selectedUploadFile = file;
-  selectedFileName.textContent = file.name;
-  selectedFileSize.textContent = formatBytes(file.size);
-  selectedFileInfo.style.display = "flex";
+  selectedFilesCountTitle.textContent = `Selected Files (${selectedUploadFiles.length})`;
+  startUploadBtn.textContent = `Start Ingestion Pipeline (${selectedUploadFiles.length} file${selectedUploadFiles.length > 1 ? 's' : ''})`;
   startUploadBtn.style.display = "inline-flex";
+  selectedFilesContainer.style.display = "block";
+
+  selectedFilesList.innerHTML = selectedUploadFiles.map((file, idx) => `
+    <div class="file-item-card">
+      <div class="file-item-left">
+        <div class="file-item-icon">📄</div>
+        <div class="file-item-meta">
+          <div class="file-item-name" title="${escapeHtml(file.name)}">${escapeHtml(file.name)}</div>
+          <div class="file-item-size">${formatBytes(file.size)}</div>
+        </div>
+      </div>
+      <button type="button" class="file-item-remove-btn" onclick="removeUploadFile(${idx})" title="Remove file">✕</button>
+    </div>
+  `).join("");
+}
+
+function removeUploadFile(index) {
+  if (index >= 0 && index < selectedUploadFiles.length) {
+    selectedUploadFiles.splice(index, 1);
+    renderSelectedFiles();
+  }
+}
+
+window.removeUploadFile = removeUploadFile;
+
+if (clearAllFilesBtn) {
+  clearAllFilesBtn.addEventListener("click", () => {
+    selectedUploadFiles = [];
+    fileInput.value = "";
+    renderSelectedFiles();
+  });
 }
 
 startUploadBtn.addEventListener("click", async () => {
-  if (!selectedUploadFile) return;
+  if (selectedUploadFiles.length === 0) return;
 
   uploadAlert.style.display = "none";
   uploadSuccess.style.display = "none";
   uploadProgress.style.display = "flex";
   startUploadBtn.disabled = true;
 
-  const formData = new FormData();
-  formData.append("file", selectedUploadFile);
+  const totalFiles = selectedUploadFiles.length;
+  let successfulUploads = 0;
+  let failedUploads = [];
 
-  try {
-    const res = await authFetch("/upload", {
-      method: "POST",
-      body: formData
-    });
+  for (let i = 0; i < selectedUploadFiles.length; i++) {
+    const file = selectedUploadFiles[i];
+    uploadStatusText.textContent = `[${i + 1}/${totalFiles}] Parsing & indexing "${file.name}"...`;
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.detail || "Upload failed.");
+    const formData = new FormData();
+    formData.append("file", file);
 
-    uploadSuccess.innerHTML = `<strong>Success!</strong> ${data.filename} processed and indexed into FAISS vector database.`;
+    try {
+      const res = await authFetch("/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || `Upload failed for ${file.name}`);
+
+      successfulUploads++;
+    } catch (err) {
+      console.error(`Error uploading ${file.name}:`, err);
+      failedUploads.push(`${file.name}: ${err.message}`);
+    }
+  }
+
+  uploadProgress.style.display = "none";
+  startUploadBtn.disabled = false;
+
+  if (successfulUploads > 0) {
+    uploadSuccess.innerHTML = `<strong>Success!</strong> Ingested and indexed ${successfulUploads} document(s) into FAISS vector database.`;
     uploadSuccess.style.display = "block";
-    selectedUploadFile = null;
-    selectedFileInfo.style.display = "none";
-    startUploadBtn.style.display = "none";
+    selectedUploadFiles = [];
     fileInput.value = "";
-  } catch (err) {
-    uploadAlert.textContent = err.message;
+    renderSelectedFiles();
+    loadDocuments();
+    loadDashboard();
+  }
+
+  if (failedUploads.length > 0) {
+    uploadAlert.innerHTML = `<strong>Some uploads encountered errors:</strong><br>${failedUploads.map(e => `• ${escapeHtml(e)}`).join("<br>")}`;
     uploadAlert.style.display = "block";
-  } finally {
-    uploadProgress.style.display = "none";
-    startUploadBtn.disabled = false;
   }
 });
+
 
 // 3. CHAT CONTROLLER
 const convList = document.getElementById("convList");

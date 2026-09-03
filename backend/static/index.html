@@ -154,8 +154,8 @@
       <div class="section-card">
         <div class="section-header">
           <div>
-            <h3>Upload PDF Document</h3>
-            <p class="section-desc">Supports PDF text extraction, OCR fallback, and FAISS indexing.</p>
+            <h3>Upload PDF Documents</h3>
+            <p class="section-desc">Select one or multiple PDF documents for text extraction, OCR fallback, and FAISS indexing.</p>
           </div>
         </div>
 
@@ -165,17 +165,21 @@
         <!-- Upload Dropzone -->
         <div class="dropzone" id="dropzone">
           <div class="dropzone-icon">📁</div>
-          <h4>Select or Drop PDF File Here</h4>
-          <p>Maximum file size: 20 MB</p>
-          <input type="file" id="fileInput" accept="application/pdf,.pdf" style="display: none;">
+          <h4>Select or Drop PDF Files Here</h4>
+          <p>You can select multiple PDF files simultaneously. Maximum file size: 20 MB each.</p>
+          <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple style="display: none;">
           <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
             Browse Files
           </button>
         </div>
 
-        <div id="selectedFileInfo" class="file-info-card" style="display: none;">
-          <div class="file-name" id="selectedFileName">document.pdf</div>
-          <div class="file-size" id="selectedFileSize">0 KB</div>
+        <!-- Multi-File Selected List Container -->
+        <div id="selectedFilesContainer" class="files-list-container" style="display: none;">
+          <div class="files-list-header">
+            <span id="selectedFilesCountTitle">Selected Files (0)</span>
+            <button type="button" class="btn btn-outline btn-sm" id="clearAllFilesBtn">Clear All</button>
+          </div>
+          <div id="selectedFilesList" class="files-list"></div>
         </div>
 
         <div id="uploadProgress" class="progress-container" style="display: none;">
@@ -190,6 +194,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- 4. CHAT / Q&A VIEW (Self-Healing RAG) -->
     <section id="chatTab" class="app-tab chat-layout" style="display: none;">

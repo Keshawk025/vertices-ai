@@ -51,32 +51,56 @@ def get_stats(current_user: User = Depends(get_current_user), db: Session = Depe
     fs_docs = fs_list_documents(user_id=uid)
     fs_convs = fs_list_conversations(user_id=uid)
 
-    if fs_docs or fs_convs:
-        total_docs = len(fs_docs)
-        total_ocr = sum(1 for d in fs_docs if d.get("ocr_used"))
-        storage_used = sum(int(d.get("file_size", 0)) for d in fs_docs)
-        total_convs = len(fs_convs)
-        total_questions = 0
+    # Fetch SQLite records
+    db_docs = db.query(Document).filter(Document.user_id == current_user.id).all()
+    db_convs = db.query(Conversation).filter(Conversation.user_id == current_user.id).all()
+
+    # Merge documents by id
+    all_docs_map = {}
+    for d in db_docs:
+        all_docs_map[d.id] = {
+            "id": d.id,
+            "filename": d.filename,
+            "status": d.status,
+            "page_count": d.page_count,
+            "ocr_used": bool(d.ocr_used),
+            "file_size": d.file_size or 0,
+            "uploaded_at": d.uploaded_at
+        }
+    for d in fs_docs:
+        doc_id = d.get("id")
+        if doc_id:
+            all_docs_map[doc_id] = {
+                "id": doc_id,
+                "filename": d.get("filename", ""),
+                "status": d.get("status", "processed"),
+                "page_count": d.get("page_count", 0),
+                "ocr_used": bool(d.get("ocr_used")),
+                "file_size": int(d.get("file_size", 0)),
+                "uploaded_at": d.get("uploaded_at")
+            }
+
+    merged_docs = list(all_docs_map.values())
+    total_docs = len(merged_docs)
+    total_ocr = sum(1 for d in merged_docs if d.get("ocr_used"))
+    storage_used = sum(int(d.get("file_size", 0)) for d in merged_docs)
+
+    # Merge conversations by id
+    conv_map = {c.id: True for c in db_convs}
+    for c in fs_convs:
+        if c.get("id"):
+            conv_map[c["id"]] = True
+    total_convs = len(conv_map)
+
+    # Questions count
+    total_questions = 0
+    if fs_convs:
         for c in fs_convs:
             msgs = fs_list_messages(user_id=uid, conversation_id=c["id"])
             total_questions += sum(1 for m in msgs if m.get("role") == "user")
-
-        return DashboardStatsResponse(
-            total_documents=total_docs,
-            total_conversations=total_convs,
-            total_questions=total_questions,
-            total_ocr_documents=total_ocr,
-            total_storage_bytes=storage_used
-        )
-
-    # SQLite fallback
-    docs_query = db.query(Document).filter(Document.user_id == current_user.id)
-    total_docs = docs_query.count()
-    total_ocr = docs_query.filter(Document.ocr_used == 1).count()
-    storage_used = db.query(func.sum(Document.file_size)).filter(Document.user_id == current_user.id).scalar() or 0
-    total_convs = db.query(Conversation).filter(Conversation.user_id == current_user.id).count()
-    total_questions = db.query(Message).join(Conversation, Message.conversation_id == Conversation.id)\
-        .filter(Conversation.user_id == current_user.id, Message.role == "user").count()
+    else:
+        total_questions = db.query(Message).join(Conversation, Message.conversation_id == Conversation.id)\
+            .filter(Conversation.user_id == current_user.id, Message.role == "user").count()
 
     return DashboardStatsResponse(
         total_documents=total_docs,
@@ -98,46 +122,53 @@ def search_documents(
     logger.info(f"Search executed by user {current_user.id}")
     uid = getattr(current_user, "uid", current_user.id)
     fs_docs = fs_list_documents(user_id=uid)
+    db_docs = db.query(Document).filter(Document.user_id == current_user.id).all()
 
-    if fs_docs:
-        filtered = fs_docs
-        if search:
-            filtered = [d for d in filtered if search.lower() in d.get("filename", "").lower()]
-        if status:
-            filtered = [d for d in filtered if d.get("status") == status]
-        if upload_date:
-            filtered = [d for d in filtered if str(d.get("uploaded_at", "")).startswith(upload_date)]
+    # Merge documents from SQLite and Firestore
+    all_docs_map = {}
+    for d in db_docs:
+        all_docs_map[d.id] = {
+            "id": d.id,
+            "filename": d.filename,
+            "status": d.status,
+            "page_count": d.page_count or 1,
+            "ocr_used": bool(d.ocr_used),
+            "file_size": d.file_size or 0,
+            "uploaded_at": d.uploaded_at or datetime.now()
+        }
+    for d in fs_docs:
+        doc_id = d.get("id")
+        if doc_id:
+            all_docs_map[doc_id] = {
+                "id": doc_id,
+                "filename": d.get("filename", ""),
+                "status": d.get("status", "processed"),
+                "page_count": d.get("page_count", 1),
+                "ocr_used": bool(d.get("ocr_used")),
+                "file_size": int(d.get("file_size", 0)),
+                "uploaded_at": d.get("uploaded_at") or datetime.now()
+            }
 
-        return [
-            DocumentDashboardResponse(
-                id=d["id"],
-                filename=d["filename"],
-                status=d["status"],
-                uploaded_at=d.get("uploaded_at") or datetime.now(),
-                page_count=d.get("page_count", 0),
-                ocr_used=bool(d.get("ocr_used")),
-                file_size=d.get("file_size", 0)
-            ) for d in filtered[:20]
-        ]
-
-    # SQLite fallback
-    query = db.query(Document).filter(Document.user_id == current_user.id)
+    filtered = list(all_docs_map.values())
     if search:
-        query = query.filter(Document.filename.ilike(f"%{search}%"))
+        filtered = [d for d in filtered if search.lower() in d["filename"].lower()]
     if status:
-        query = query.filter(Document.status == status)
+        filtered = [d for d in filtered if d["status"] == status]
     if upload_date:
-        query = query.filter(func.datetime(Document.uploaded_at).startswith(upload_date))
+        filtered = [d for d in filtered if str(d["uploaded_at"]).startswith(upload_date)]
 
-    docs = query.order_by(Document.uploaded_at.desc()).limit(20).all()
+    # Sort newest first
+    filtered.sort(key=lambda x: str(x.get("uploaded_at", "")), reverse=True)
+
     return [
         DocumentDashboardResponse(
-            id=doc.id,
-            filename=doc.filename,
-            status=doc.status,
-            uploaded_at=doc.uploaded_at,
-            page_count=doc.page_count,
-            ocr_used=bool(doc.ocr_used),
-            file_size=doc.file_size
-        ) for doc in docs
+            id=d["id"],
+            filename=d["filename"],
+            status=d["status"],
+            uploaded_at=d["uploaded_at"],
+            page_count=d["page_count"],
+            ocr_used=d["ocr_used"],
+            file_size=d["file_size"]
+        ) for d in filtered[:50]
     ]
+

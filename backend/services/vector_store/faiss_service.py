@@ -15,11 +15,31 @@ class FAISSService:
         self.index = None
         self.metadata_store = {}  # Map integer IDs to metadata dict
         self._next_id = 0
+        self._last_loaded_mtime = 0
         if os.path.exists(self.index_path) and os.path.exists(self.meta_path):
             try:
                 self.load_index()
             except Exception as e:
                 logger.warning(f"Could not auto-load index from {self.index_path}: {e}")
+
+    def _sync_from_disk(self):
+        """Ensures the in-memory index is synchronized with the latest on-disk index if dimension matches."""
+        if os.path.exists(self.index_path) and os.path.exists(self.meta_path):
+            try:
+                current_mtime = os.path.getmtime(self.index_path)
+                if current_mtime > self._last_loaded_mtime or self.index is None:
+                    # Check dimension before loading to avoid overriding custom-dimension in-memory tests
+                    loaded_index = faiss.read_index(self.index_path)
+                    if loaded_index.d == self.dimension:
+                        self.index = loaded_index
+                        with open(self.meta_path, "r") as f:
+                            data = json.load(f)
+                            self._next_id = data.get("next_id", 0)
+                            self.metadata_store = data.get("store", {})
+                        self._last_loaded_mtime = current_mtime
+            except Exception as e:
+                logger.warning(f"Failed to sync index from disk: {e}")
+
 
     def create_index(self):
         """Initializes a new FAISS index using Inner Product (for Cosine Similarity on normalized vectors)."""
@@ -27,6 +47,7 @@ class FAISSService:
         self.index = faiss.IndexIDMap(faiss.IndexFlatIP(self.dimension))
         self.metadata_store = {}
         self._next_id = 0
+        self._last_loaded_mtime = 0
         logger.info(f"Index created with dimension {self.dimension} and Cosine Similarity (IndexFlatIP).")
 
     def _normalize_vectors(self, vectors: np.ndarray) -> np.ndarray:
@@ -36,6 +57,7 @@ class FAISSService:
         return vectors / norms
 
     def add_embeddings(self, embedded_chunks: List[Dict[str, Any]]):
+        self._sync_from_disk()
         if self.index is None:
             if os.path.exists(self.index_path) and os.path.exists(self.meta_path):
                 try:
@@ -44,6 +66,7 @@ class FAISSService:
                     self.create_index()
             else:
                 self.create_index()
+
             
         if not embedded_chunks:
             logger.warning("Empty embeddings list provided.")
@@ -165,6 +188,10 @@ class FAISSService:
                 "store": self.metadata_store
             }, f)
             
+        try:
+            self._last_loaded_mtime = os.path.getmtime(self.index_path)
+        except Exception:
+            pass
         logger.info("Index saved.")
 
     def load_index(self):
@@ -184,7 +211,12 @@ class FAISSService:
             self._next_id = data.get("next_id", 0)
             self.metadata_store = data.get("store", {})
             
+        try:
+            self._last_loaded_mtime = os.path.getmtime(self.index_path)
+        except Exception:
+            pass
         logger.info("Index loaded.")
+
 
     def delete_document(self, document_id: str):
         if self.index is None or self.index.ntotal == 0:

@@ -487,6 +487,98 @@ body {
   color: var(--text-muted);
 }
 
+/* Multi-File Upload Styling */
+.files-list-container {
+  background-color: rgba(26, 26, 38, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.files-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+.files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.file-item-card {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.file-item-card:hover {
+  border-color: #64748B;
+}
+
+.file-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.file-item-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.file-item-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.file-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #F1F5F9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 380px;
+}
+
+.file-item-size {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.file-item-remove-btn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.file-item-remove-btn:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #F87171;
+}
+
+
 /* Progress Spinner */
 .progress-container {
   display: flex;

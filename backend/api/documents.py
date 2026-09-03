@@ -41,27 +41,33 @@ def get_documents(current_user: User = Depends(get_current_user), db: Session = 
 
     logger.info(f"User document lookup for user {current_user.id}")
 
-    if fs_docs:
-        return [
-            DocumentResponse(
-                id=d["id"],
-                user_id=d.get("user_id", current_user.id),
-                filename=d["filename"],
-                status=d["status"],
-                uploaded_at=d.get("uploaded_at") or datetime.now(),
-                storage_path=d.get("storage_path"),
-                download_url=st_get_signed_url(user_id=uid, doc_id=d["id"], storage_path=d.get("storage_path")) if d.get("storage_path") else None
-            ) for d in fs_docs
-        ]
-    return [
-        DocumentResponse(
+    # Merge records from both SQLite and Firestore by document ID so no document is omitted
+    doc_map = {}
+    for d in db_docs:
+        doc_map[d.id] = DocumentResponse(
             id=d.id,
             user_id=d.user_id,
             filename=d.filename,
             status=d.status,
             uploaded_at=d.uploaded_at
-        ) for d in db_docs
-    ]
+        )
+
+    for d in fs_docs:
+        doc_id = d.get("id")
+        if doc_id:
+            s_path = d.get("storage_path")
+            doc_map[doc_id] = DocumentResponse(
+                id=doc_id,
+                user_id=d.get("user_id", current_user.id),
+                filename=d["filename"],
+                status=d["status"],
+                uploaded_at=d.get("uploaded_at") or datetime.now(),
+                storage_path=s_path,
+                download_url=st_get_signed_url(user_id=uid, doc_id=doc_id, storage_path=s_path) if s_path else None
+            )
+
+    return list(doc_map.values())
+
 
 
 @router.get("/{document_id}", response_model=DocumentResponse)
